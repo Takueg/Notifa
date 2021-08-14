@@ -6,4 +6,6 @@ class Search < ApplicationRecord
   validates :user, presence: true
   validates :city, presence: true
   validates :frequency, presence: true
+  validates :frequency, inclusion: { in: ["immediately", "hourly", "once a day"] }
+  validates :category, inclusion: { in: ["studio", "apartment", "private room", "shared room", "house"] }
 end
