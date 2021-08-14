@@ -31,13 +31,15 @@ User.all.each do |user_id|
   user_ids << user_id.id
 end
 
-frequency = ['immediately', 'every hour', 'once a week']
+frequency = ["immediately", "hourly", "once a day"]
+category = ["studio", "apartment", "private room", "shared room", "house"]
 
 20.times do
   Search.create(
     user_id: user_ids[rand(19)],
     city: 'Berlin',
-    frequency: frequency.sample
+    frequency: frequency.sample,
+    category: category.sample
     )
 end
 
