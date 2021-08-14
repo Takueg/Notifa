@@ -1,7 +1,11 @@
 .homepage-container {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: row;
 }
+
+// .homepage-left {
+//   flex-shrink: 0;
+// }
 
 .homepage-description {
   margin-top: 276px;
@@ -15,6 +19,7 @@
   line-height: 68px;
   height: 164px;
   font-family:'Inter', sans-serif;;
+  // width: 606px;
 }
 
 .homepage-description h3 {
