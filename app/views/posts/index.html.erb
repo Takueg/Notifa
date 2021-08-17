@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Index</h1>
+
+  <% @posts.each do |post| %>
+    <div>
+      <h2><%= post.address %></h2>
+        <p><%= post.price %></p>
+        <p><%= post.room %></p>
+        <p><%= post.description %></p>
+    </div>
+  <% end %>
+</div>

@@ -1,1 +1,41 @@
-// Specific CSS for your home-page
+.homepage-container {
+  display: flex;
+  flex-direction: row;
+}
+
+// .homepage-left {
+//   flex-shrink: 0;
+// }
+
+.homepage-description {
+  margin-top: 276px;
+  margin-left: 70px;
+  margin-right: 48px;
+}
+
+.homepage-description h1 {
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 68px;
+  height: 164px;
+  font-family:'Inter', sans-serif;;
+  // width: 606px;
+}
+
+.homepage-description h3 {
+  margin-top: 21px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  font-family: 'Inter', sans-serif;;
+}
+
+.homepage-description p {
+  margin-top: 8px;
+  margin-bottom: 48px;
+  font-weight: normal;
+  font-size: 18px;
+  width: 475px;
+  line-height: 21px;
+  font-family: 'Roboto', sans-serif;
+}
