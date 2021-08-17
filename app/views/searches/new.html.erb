@@ -1,15 +1,41 @@
 <div class="row">
   <div class="col-12 col-sm-12 col-md-7 col-lg-7">
     <h1 class="text-center mb-3"> Please specify your search</h1>
+
     <%= simple_form_for @search do |f| %>
-      <%#= f.association :frequency, as: :check_boxes, label: 'How often do you want to be notified?' %>
-      <%= f.input :preferred_district, placeholder: 'Neighborhood', label: false, input_html: { class: 'form-control-lg' } %>
-      <%#= f.association :category, prompt: 'Type', label: false, input_html: { class: 'form-control-lg' } %>
-      <%= f.input :preferred_district, placeholder: 'Neighborhood', label: false, input_html: { class: 'form-control-lg' } %>
-      <%= f.input :room, placeholder: 'Rooms', label: false, input_html: { class: 'form-control-lg' } %>
-      <%= f.submit class: 'btn btn-block btn-lg mt-4 form-button' %>
+      <%= f.input :frequency,
+        as: :check_boxes,
+        collection: ["Immediately", "Hourly", "Once a day"],
+        label: 'How often do you want to be notified?' %>
+      <%= f.input :preferred_district,
+        placeholder: 'Neighborhood',
+        label: false,
+        input_html: { class: 'form-control-lg' } %>
+      <%= f.input :category,
+        prompt: 'Type',
+        collection: ["Studio", "Apartment", "Private room", "Shared room", "House"],
+        label: false,
+        input_html: { class: 'form-control-lg' } %>
+      <%= f.input :room,
+        prompt: 'Rooms',
+        collection: [1,2,3,4,'5 or more'],
+        label: false,
+        input_html: { class: 'form-control-lg' } %>
+      <%= f.input :min_size,
+        prompt: 'Size in sm²',
+        collection: ["> 20 sm²", "> 40 sm²", "> 60 sm²", "> 80 sm²", "> 100 sm²" ],
+        label: false,
+        input_html: { class: 'form-control-lg' } %>
+      <%= f.input :max_price,
+        placeholder: 'Max price in €',
+        label: false,
+        input_html: { class: 'form-control-lg' } %>
+      <%= f.button :submit, 'Submit',
+        class: 'btn-primary btn-block btn-lg mt-4' %>
     <% end %>
+
   </div>
-  <div class="col-12 col-sm-12 col-md-5 col-lg-5">
+  <div class="col-12 col-sm-12 col-md-5 col-lg-5" style="background-color: lightgray;">
+    <h2>image to go here</h2>
   </div>
 </div>
