@@ -3,6 +3,14 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+
+    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+    @markers = @posts.geocoded.map do |post|
+      {
+        lat: post.latitude,
+        lng: post.longitude
+      }
+    end
   end
 
   def show
