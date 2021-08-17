@@ -15,7 +15,7 @@ namespace :scraper do
     ###################
     # visit website x #
     ###################
-    puts "scraping for ebay posts"
+    puts "scraping for ebay-kleinanzeigen posts"
     attributes = "Berlin" # has to return the search field
     # EbayScraper.call()
       url = "https://www.ebay-kleinanzeigen.de/s-auf-zeit-wg/#{attributes}"
@@ -24,7 +24,7 @@ namespace :scraper do
         post_html = URI.open(url).read
         post_doc = Nokogiri::HTML(post_html)
 
-        title_string = post_doc.search('h2').text.strip
+        title = post_doc.search('h2').text.strip
         address = post_doc.search('aditem-main--top--left').text.strip
         price = post_doc.search('aditem-main--middle--price').text.strip
         size = post_doc.search('simpletag tag-small').first.text.strip
@@ -35,6 +35,7 @@ namespace :scraper do
         description = post_doc.search('aditem-main--middle--description').text.strip
         date_posted = post_doc.search('aditem-main--top--right').text.strip
         company = url
+        return {title: title, adress: address, price: price, size: size, post_url: post_url, image_url: image_url, room: room, description: description, date_posted: date_posted, company: company}
       end
 
     # # save posts to database using scraped data (Flat.create(name: name))
@@ -56,6 +57,6 @@ namespace :scraper do
     ################################################
     # print result to terminal (puts "post saved") #
     ################################################
-    return {title: title, adress: address, price: price, size: size, post_url: post_url, image_url: image_url, room: room, description: description, date_posted: date_posted, company: company}
+    # return {title: title, adress: address, price: price, size: size, post_url: post_url, image_url: image_url, room: room, description: description, date_posted: date_posted, company: company}
   end
 end
