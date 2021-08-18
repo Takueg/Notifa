@@ -1,5 +1,6 @@
 .booking-box {
   background: white;
+
   border-radius: 16px;
   box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.2);
   border-radius: 18px;
@@ -9,6 +10,11 @@
   flex-direction: column;
   align-items: center;
   margin-left: auto;
+
+  width: 333px;
+  height: 468px;
+  left: 1053px;
+  top: 312px;
 }
 
 .booking-card-grid{
