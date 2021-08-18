@@ -21,7 +21,7 @@
   display: grid;
   width: 100%;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 8px;
   border-top: 1px solid #E3E5E5;
   border-bottom: 1px solid #E3E5E5;
 
@@ -30,7 +30,7 @@
     color: #72777A;
     align-items: center;
     justify-content: center;
-    padding: 8px 0;
+    padding: 12px 0;
     i {
       margin-right: 8px;
       font-size: 20px;
