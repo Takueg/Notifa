@@ -3,10 +3,29 @@
   <h1 class="post-title"><%= @posts.title %></h1>
 
   <div class="booking-box">
-    <p>Rent per month</p>
-    <p><%= @posts.price %></p>
-    <p>Collected from</p>
-    <%= image_tag "logo1.png" %>
-    <%= link_to "Apply", root_path %>
+    <p class="rent-per-month">Rent per month</p>
+    <p class="post-price"><%= @posts.price %></p>
+    <p class="from-date">From 1 OCT 2021</p>
+      <div class="booking-card-grid">
+        <div>
+          <i class="ti ti-map-pin icon-size"></i>
+          <p class="card-grid-text">Mitte</p>
+        </div>
+        <div>
+          <i class="ti ti-square icon-size"></i>
+          <p class="card-grid-text">3 rooms</p>
+        </div>
+        <div>
+          <i class="ti ti-home icon-size"></i>
+          <p class="card-grid-text">Shared</p>
+        </div>
+        <div>
+          <i class="ti ti-shape icon-size"></i>
+          <p class="card-grid-text">110 qm2</p>
+        </div>
+      </div>
+
+    <%= image_tag "logo1.png" , :class => "logo"%>
+    <a class="btn btn-primary" href="https://housinganywhere.com" role="button">Apply <i class="ti ti-external-link icon-size"></i></a>
   </div>
 </div>
