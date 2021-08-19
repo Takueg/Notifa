@@ -1,6 +1,6 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= yield(:navbar_class) %>">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <%= image_tag "notifa_logo.svg" %>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,8 +30,8 @@
           <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
         </li>
         <li class="nav-item-login">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <%#= link_to "Log in", new_user_session_path, class: "btn btn-ghost" %>
+          <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Log in", new_user_session_path, class: "btn btn-black" %>
         </li>
 
       <% end %>
