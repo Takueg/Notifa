@@ -11,6 +11,7 @@ class PostsController < ApplicationController
         lng: post.longitude
       }
     end
+    raise
   end
 
   def show
