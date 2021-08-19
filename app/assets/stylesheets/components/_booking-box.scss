@@ -1,5 +1,6 @@
 .booking-box {
   background: white;
+
   border-radius: 16px;
   box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.2);
   border-radius: 18px;
@@ -9,4 +10,33 @@
   flex-direction: column;
   align-items: center;
   margin-left: auto;
+
+  width: 333px;
+  height: 468px;
+  left: 1053px;
+  top: 312px;
+}
+
+.booking-card-grid{
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 8px;
+  border-top: 1px solid #E3E5E5;
+  border-bottom: 1px solid #E3E5E5;
+
+  div {
+    display: flex;
+    color: #72777A;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 0;
+    i {
+      margin-right: 8px;
+      font-size: 20px;
+    }
+    p {
+      margin: 0;
+    }
+  }
 }
