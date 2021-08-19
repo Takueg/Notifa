@@ -3,6 +3,10 @@
     <h1 class="text-center mb-3"> Please specify your search</h1>
 
     <%= simple_form_for @search do |f| %>
+      <%= f.input :city,
+        placeholder: 'City',
+        label: false,
+        input_html: { class: 'form-control-lg' } %>
       <%= f.input :frequency,
         as: :check_boxes,
         collection: ["Immediately", "Hourly", "Once a day"],
