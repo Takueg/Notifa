@@ -10,3 +10,29 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar-brand {
+  display: block;
+  text-indent: -9999px;
+  width: 180px;
+  height: 68px;
+  background: url(notifa_logo.svg);
+  background-size: 180px 68px;
+  margin-left: 51px;
+}
+
+.navbar-home {
+  position: absolute;
+  width: 100%;
+  background: transparent;
+  box-shadow: none;
+  .navbar-wagon-link {
+    color: white;
+    font-weight: bold;
+  }
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: black;
+    margin-right: 12px;
+}

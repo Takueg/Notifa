@@ -1,16 +1,31 @@
 .homepage-container {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  background-color: white;
+  height: 100vh;
 }
 
 // .homepage-left {
 //   flex-shrink: 0;
 // }
 
+// .homepage-right {
+//   width: 100vh;
+//   background-image: url("home_banner.png");
+//   background-size: cover;
+// }
+
+.homepage-image img {
+  // width: 667px;
+  height: 100vh;
+}
+
 .homepage-description {
   margin-top: 276px;
   margin-left: 70px;
   margin-right: 48px;
+  white-space: nowrap;
 }
 
 .homepage-description h1 {
