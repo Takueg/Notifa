@@ -1,9 +1,9 @@
-
+<%= content_for(:navbar_class, "navbar-home") %>
 
 <div class=homepage-container>
   <div class=homepage-left>
     <div class=homepage-description>
-      <h1>We look for rentals on your <span style="color:#5538EE">behalf</span>.</h1>
+      <h1>We look for rentals<br />on your <span style="color:#5538EE">behalf</span>.</h1>
       <h3>Looking for an apartment, room or house?</h3>
       <p>Notifa contacts you as soon as a rental listing is uploaded anywhere online so you are always the first one to know.</p>
 
@@ -22,7 +22,7 @@
 
   <div class=homepage-right>
     <div class=homepage-image>
-      <img src="https://images.unsplash.com/photo-1593279340482-125068f0ca45?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80" alt="">
+      <%= image_tag "home_banner.png" %>
     </div>
   </div>
 </div>
