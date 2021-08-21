@@ -1,7 +1,48 @@
+.index-container {
+  margin-left: 69px;
+  margin-right: 69px;
+}
+
 h3 {
   margin-top: 21px;
   font-weight: 800;
   font-size: 40px;
   line-height: 48px;
   font-family: 'Inter', sans-serif;
+}
+
+.image-grid {
+  display: flex;
+  height: 218px;
+  border-radius: 18px;
+  border-radius: 8px 8px ;
+}
+
+.large-image {
+  flex-grow: 1;
+  height: 218px;
+  width: 100%;
+  margin-right: 10px;
+  background-size: cover;
+  background-position: center;
+}
+
+.small-images {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  height: 218px;
+  grid-gap: 7px;
+
+  .small-image {
+    background-size: cover;
+    background-position: center;
+    height: 105px;
+    width: 141px;
+  }
+}
+
+
+.searches-card {
+  border-radius: 8px;
 }

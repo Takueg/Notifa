@@ -1,4 +1,4 @@
-<div class="container py-5">
+<div class="index-container">
   <div class="d-flex align-items-center justify-content-between mb-3">
     <h3 class="mb-0">Your search <span style="color:#5538EE">lists</span>.</h3>
     <%#= link_to 'Create a new search', new_search_path, class: 'btn btn-black' %>
@@ -6,7 +6,7 @@
   <div class="row">
     <% @searches.each do |search| %>
       <% if search.user_id == 155 %>
-        <div class="co-12 colsm-6 col-md-4 mb-3">
+        <div class="co-12 col-sm-6 col-md-4 mb-3">
           <%= link_to search_path(search), class:'text-decoration-none' do %>
              <div class="card-category" data-aos="zoom-in">
                 <img src="https://source.unsplash.com/collection/145698/200x200">
@@ -20,4 +20,47 @@
       <% end %>
     <% end %>
   </div>
+  <div class="row my-3">
+    <% @searches.each do |search| %>
+      <% if search.user_id == 155 %>
+        <div class="col-12 col-sm-6 col-md-4 mb-3">
+          <div class="searches-card bg-white shadow h-100">
+            <div class="image-grid mt-3">
+      <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/collection/404339')">
+      </div>
+  <div class="small-images">
+        <div class="small-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/collection/1118894')">
+        </div>
+        <div class="small-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/collection/145698')">
+        </div>
+  </div>
 </div>
+            <div class="p-3 d-flex flex-column">
+              <p><%= search.category %> <span class="text-muted font-weight-normal">, <%= search.city %></span></p>
+              <div class="d-flex align-items-end justify-content-between">
+                <small class="text-muted flex-grow-1"><%= search.user_id %> listings</small>
+                <label class="switch flex-shrink-0">
+                  <input type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="image-grid mt-3">
+      <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/collection/404339')">
+      </div>
+  <div class="small-images">
+        <div class="small-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/collection/1118894')">
+        </div>
+        <div class="small-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/collection/145698')">
+        </div>
+  </div>
+</div>
+
