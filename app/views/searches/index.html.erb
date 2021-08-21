@@ -1,0 +1,11 @@
+<div class="container py-5">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h3 class="mb-0">Your search <span style="color:#5538EE">lists</span>.</h3>
+    <%= link_to 'Create a new search', new_search_path, class: 'btn btn-black' %>
+  </div>
+  <div class="row">
+    <% @searches.each do |search| %>
+      <%= search.title %>
+    <% end %>
+  </div>
+</div>
