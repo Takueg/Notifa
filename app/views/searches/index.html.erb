@@ -1,11 +1,23 @@
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
     <h3 class="mb-0">Your search <span style="color:#5538EE">lists</span>.</h3>
-    <%= link_to 'Create a new search', new_search_path, class: 'btn btn-black' %>
+    <%#= link_to 'Create a new search', new_search_path, class: 'btn btn-black' %>
   </div>
   <div class="row">
     <% @searches.each do |search| %>
-      <%= search.title %>
+      <% if search.user_id == 155 %>
+        <div class="co-12 colsm-6 col-md-4 mb-3">
+          <%= link_to search_path(search), class:'text-decoration-none' do %>
+             <div class="card-category" data-aos="zoom-in">
+                <img src="https://source.unsplash.com/collection/145698/200x200">
+                <%= search.preferred_district %>
+                <%= search.city %>
+                <%= search.category %>
+                <%= search.user_id %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
