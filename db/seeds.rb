@@ -6,7 +6,7 @@ Post.destroy_all
 
 puts 'Creating First User'
 
-User.create(
+User.create!(
     email: 'notifa@notifa.com',
     password: '12345678',
     first_name: 'Notifa',
@@ -16,7 +16,7 @@ User.create(
 puts 'Creating 20 fake users...'
 
 20.times do
-  User.create(
+  User.create!(
     email: Faker::Internet.email,
     password: Faker::Alphanumeric.alpha(number: 10),
     first_name: Faker::Name.first_name,
@@ -26,17 +26,13 @@ end
 
 puts 'Creating 20 fake searches...'
 
-user_ids = []
-User.all.each do |user_id|
-  user_ids << user_id.id
-end
-
-frequency = ["immediately", "hourly", "once a day"]
-category = ["studio", "apartment", "private room", "shared room", "house"]
+frequency = ["Immediately", "Hourly", "Once a day"]
+category = ["Studio", "Apartment", "Private room", "Shared room", "House"]
+images = []
 
 20.times do
-  Search.create(
-    user_id: user_ids[rand(19)],
+  Search.create!(
+    user: User.all.sample,
     city: 'Berlin',
     frequency: frequency.sample,
     category: category.sample
@@ -46,13 +42,14 @@ end
 puts 'Creating 20 fake posts...'
 
 20.times do
-  Post.create(
+  Post.create!(
     address: Faker::Address.street_name,
     price: rand(350..1750),
     size: rand(20..220),
     room: rand(1..5),
-    description: Faker::Lorem.sentence
+    description: Faker::Lorem.sentence,
     )
+
 end
 
 puts 'Finished!'
