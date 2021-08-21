@@ -3,19 +3,22 @@
   margin-right: 69px;
 }
 
-h3 {
-  margin-top: 21px;
+.search-district {
+  margin: 0px !important;
+  color: black;
+}
+
+.search-list {
+  margin-top: 55px;
   font-weight: 800;
   font-size: 40px;
-  line-height: 48px;
+  line-height: 10px;
   font-family: 'Inter', sans-serif;
 }
 
 .image-grid {
   display: flex;
   height: 218px;
-  border-radius: 18px;
-  border-radius: 8px 8px ;
 }
 
 .large-image {
@@ -25,6 +28,7 @@ h3 {
   margin-right: 10px;
   background-size: cover;
   background-position: center;
+  border-radius: 8px 0px 0px 0px;
 }
 
 .small-images {
@@ -34,7 +38,14 @@ h3 {
   height: 218px;
   grid-gap: 7px;
 
-  .small-image {
+  .small-image-1 {
+    background-size: cover;
+    background-position: center;
+    height: 105px;
+    width: 141px;
+    border-radius: 0px 8px 0px 0px;
+  }
+  .small-image-2 {
     background-size: cover;
     background-position: center;
     height: 105px;
@@ -42,7 +53,10 @@ h3 {
   }
 }
 
-
 .searches-card {
   border-radius: 8px;
+}
+
+.lists-count {
+  margin-left: 4px;
 }
