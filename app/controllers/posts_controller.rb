@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :show, :index]
 
   def index
+    raise
     @posts = Post.all
 
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
@@ -11,10 +12,12 @@ class PostsController < ApplicationController
         lng: post.longitude
       }
     end
-    raise
   end
 
   def show
     @posts = Post.find(params[:id])
+  end
+
+  def create
   end
 end

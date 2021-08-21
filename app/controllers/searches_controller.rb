@@ -1,7 +1,8 @@
 class SearchesController < ApplicationController
 
-  def index
-  end
+  # def index
+  #   @searches = Search.all
+  # end
 
   def new
     @search = Search.new
@@ -10,12 +11,9 @@ class SearchesController < ApplicationController
 
   def create
     @search = Search.new(search_params)
-    @search.user_id = current_user
-    if @search.save
-      redirect_to posts_path
-    else
-      render :new
-    end
+    @search.user_id = current_user.id
+    @search.save
+    render :new if !@search.valid?
   end
 
   private
