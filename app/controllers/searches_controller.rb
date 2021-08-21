@@ -1,4 +1,8 @@
 class SearchesController < ApplicationController
+
+  def index
+  end
+
   def new
     @search = Search.new
     @search.city = params[:query]
