@@ -18,7 +18,7 @@ namespace :scraper do
     puts "scraping for ebay-kleinanzeigen posts"
     # attributes = "Berlin" # has to return the search field
     # EbayScraper.call()
-    card_selector = 'article.aditem'
+    # card_selector = 'article.aditem'
     # title_selector = 'h2.text-module-begin'
     # address_selector = 'div.aditem-main--top--left'
     # price_selector = 'p.aditem-main--middle--price'
@@ -26,8 +26,7 @@ namespace :scraper do
     # room_selector = 'span.simpletag.tag-small'
     # description_selector = 'p.viewad-description-text'
     # image_url_selector = 'data-ix="0"'
-    article_selector = 'section.a-span-16.l-col'
-    title_selector = 'h1'
+
 
     # room = post_doc.search('simpletag tag-small').last.text.strip
     # # category: nil,
@@ -46,23 +45,17 @@ namespace :scraper do
       show_html = URI.open(show_page).read
       show_doc = Nokogiri::HTML(show_html)
 
-      show_doc.search(article_selector).each  do |article|
-        title = article.search(title_selector).last.content.strip
-        # address = card.search(address_selector).first.content.strip
-        # price = card.search(price_selector).first.content.strip
-        # size = card.search(size_selector).first.content.strip
-        # room = card.search(room_selector).last.content.strip
-        # post_url_tag = card.search(post_url_selector)
-        # description = card.search(description_selector).first.content.strip
-        # image = card.search(image_url_selector).first
-        # p post_url_tag
-        p title
-        # p address
-        # p price
-        # p size
-        # p room
-        # p description
-        # Post.create(title: title, address: address, price: price, size: size, post_url: post_url, image_url: image_url, room: room, description: description, date_posted: date_posted, company: company)
+      article_selector = '.boxedarticle'
+      title_selector = '.boxedarticle--title'
+      address_selector = 'span#street-address'
+      price_selector = '.boxedarticle--price'
+      images_selector = '.galleryimage-element>img'
+
+      p show_doc.search(article_selector).search(title_selector).first.content.strip
+      p show_doc.search(article_selector).search(address_selector).text.strip
+      p show_doc.search(article_selector).search(price_selector).first.content.strip
+      p show_doc.search(article_selector).search(images_selector).each do |image|
+        p image
       end
 
       # return {title: title, adress: address, price: price, size: size, post_url: post_url, image_url: image_url, room: room, description: description, date_posted: date_posted, company: company}
