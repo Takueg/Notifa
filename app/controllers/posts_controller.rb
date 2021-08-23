@@ -25,6 +25,8 @@ class PostsController < ApplicationController
 
   def search
     if params[:search].present?
+      #saving search
+      search_save
       # pg searching string columns address and category
       category_address_string = params[:search].values_at("city", "preferred_district", "category").join(" ")
       category_address_array = Post.search_strings(category_address_string)
@@ -40,4 +42,15 @@ class PostsController < ApplicationController
     end
   end
 
+  def search_save
+    @search = Search.new(search_params)
+    @search.user_id = current_user.id
+    @search.save
+    render :new if !@search.valid?
+  end
+
+  def search_params
+    params.require(:search).permit(:city, :preferred_district, :max_price,
+      :min_size, :room, :category, :frequency, :user_id)
+  end
 end
