@@ -20,14 +20,14 @@
         collection: ["Studio", "Apartment", "Private room", "Shared room", "House"],
         label: false,
         input_html: { class: 'form-control-lg' } %>
-      <%= f.input :room,
+      <%#= f.input :room,
         prompt: 'Rooms',
         collection: [1,2,3,4,'5 or more'],
         label: false,
         input_html: { class: 'form-control-lg' } %>
       <%= f.input :min_size,
         prompt: 'Size in sm²',
-        collection: ["> 20 sm²", "> 40 sm²", "> 60 sm²", "> 80 sm²", "> 100 sm²" ],
+        # collection: ["> 20 sm²", "> 40 sm²", "> 60 sm²", "> 80 sm²", "> 100 sm²" ],
         label: false,
         input_html: { class: 'form-control-lg' } %>
       <%= f.input :max_price,

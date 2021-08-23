@@ -2,17 +2,8 @@ class PostsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :show, :index]
 
   def index
-    if params[:search].present?
-      # pg searching string columns address and category
-      category_address_string = params[:search].values_at("city", "preferred_district", "category").join(" ")
-      category_address = Post.search_strings(category_address_string)
-      + Post.where("price <  ?", params[:search][:max_price])
-      + Post.where("size >  ?", params[:search][:min_size])
-      + Post.where("room >  ?", params[:search][:room])
-      @posts = search_results.uniq
-    else
-      @posts = Post.all
-    end
+    #method that runs search
+    search
 
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
     @markers = @posts.geocoded.map do |post|
@@ -28,6 +19,25 @@ class PostsController < ApplicationController
   end
 
   def create
+  end
+
+  private
+
+  def search
+    if params[:search].present?
+      # pg searching string columns address and category
+      category_address_string = params[:search].values_at("city", "preferred_district", "category").join(" ")
+      category_address_array = Post.search_strings(category_address_string)
+
+      #filtering with price and size
+      @posts = category_address_array.select do |post|
+        post.price < params[:search][:max_price].to_i if post.price
+        post.size > params[:search][:min_size].to_i if post.size
+      end
+
+    else
+      @posts = Post.all
+    end
   end
 
 end
