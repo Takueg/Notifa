@@ -17,3 +17,20 @@
   flex-grow: 1;
   margin: 0;
 }
+
+.skip-link {
+ padding-top: 24px;
+ color: black;
+ display: flex;
+ justify-content: center;
+
+ a {
+  color: black;
+  font-weight: 500;
+
+   &:hover {
+    color: $notifa-purple;
+  }
+ }
+
+}

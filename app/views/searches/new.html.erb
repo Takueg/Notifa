@@ -14,10 +14,10 @@
           item_wrapper_class: 'category-item',
           input_html: {class: 'category-selector'},
           collection: Search::OPTIONS %>
-        <%#= f.input :frequency,
-          as: :check_boxes,
-          collection: ["Immediately", "Hourly", "Once a day"],
-          label: 'How often do you want to be notified?' %>
+        <%= f.input :city,
+          placeholder: 'City',
+          label: false,
+          input_html: { class: 'form-control-lg' } %>
         <%= f.input :preferred_district,
           placeholder: 'Neighborhood',
           label: false,
@@ -33,8 +33,7 @@
           label: false,
           input_html: { class: 'form-control-lg' } %>
         <%= f.input :min_size,
-          prompt: 'Size in sm²',
-          collection: ["> 20 sm²", "> 40 sm²", "> 60 sm²", "> 80 sm²", "> 100 sm²" ],
+          placeholder: 'Min size in sm²',
           label: false,
           input_html: { class: 'form-control-lg' } %>
         <%= f.input :max_price,
@@ -44,6 +43,10 @@
         <%= f.button :submit, 'Submit',
           class: 'btn-primary btn-block btn-lg mt-4' %>
       <% end %>
+
+      <div class="skip-link">
+        <%= link_to "Show me all results for #{@search.city}", posts_url %>
+      </div>
     </div>
 
   </div>
