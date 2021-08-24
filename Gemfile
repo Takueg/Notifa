@@ -37,7 +37,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', groups: [:development, :test]
   gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -72,3 +72,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Geocoding
 gem 'geocoder'
+
+#Cloudinary
+gem 'cloudinary', '~> 1.16.0'
+
