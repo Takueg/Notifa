@@ -1,0 +1,36 @@
+.search-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: white;
+  height: 100vh;
+}
+
+.search-right {
+  background-image: asset-url("search_banner_2.png");
+  background-size: cover;
+  height: 100vh;
+  width: 800px;
+}
+
+.search-left {
+  flex-grow: 1;
+  margin: 0;
+}
+
+.skip-link {
+ padding-top: 24px;
+ color: black;
+ display: flex;
+ justify-content: center;
+
+ a {
+  color: black;
+  font-weight: 500;
+
+   &:hover {
+    color: $notifa-purple;
+  }
+ }
+
+}
