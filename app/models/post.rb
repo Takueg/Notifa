@@ -5,11 +5,6 @@ class Post < ApplicationRecord
   after_create do
     puts "Post was created"
     puts self.title
-    # price
-    # size
-    # room
-    # find searches that match price, size and room
-    # run a search for specific searches
     puts "finding searches"
     searches = Search.where(max_price: price..Float::INFINITY).where(min_size: 0..size).where(room: 0..room)
     p searches
