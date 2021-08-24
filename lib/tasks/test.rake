@@ -29,7 +29,7 @@ namespace :scraper do
       article_selector = '.boxedarticle'
       title_selector = '.boxedarticle--title'
       street_selector = 'span#street-address'
-      city_selector =
+      city_selector = 'span#viewad-locality'
       price_selector = '.boxedarticle--price'
       size_selector = '.addetailslist--detail--value'
       images_selector = '.galleryimage-large'
