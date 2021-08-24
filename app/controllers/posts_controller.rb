@@ -37,16 +37,12 @@ class PostsController < ApplicationController
       @posts = []
 
       category_address_array.each do |post|
-
         if post.price && post.price < params[:search][:max_price].to_i
-
           if post.size && post.size > params[:search][:min_size].to_i
             @posts << post
           end
-
         end
       end
-
     else
       @posts = Post.where(params[:search][:city])
     end
