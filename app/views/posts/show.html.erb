@@ -2,9 +2,26 @@
 <div class="post-grid">
   <main class="post-content">
     <div class="photo-grid"></div>
+
+
+<!-- Lenas image grid hero -->
+
+      <div class="image-grid mt-3">
+        <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/collection/404339')"></div>
+        <div class="small-images">
+          <div class="small-image-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/collection/1118894')"></div>
+          <div class="small-image-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/collection/145698')"></div>
+        </div>
+      </div>
+
+<!-- End of Lenas image grid hero -->
+
+
     <h1 class="post-title"> <%= @posts.title %></h1>
     <p class="post-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.
       <%= @posts.description %></p>
+
+
   </main>
   <div class="sidebar">
     <h1 class="post-title"><%= @posts.address %></h1>
