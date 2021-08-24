@@ -1,8 +1,13 @@
 
 <div class="post-grid">
-  <main></main>
+  <main class="post-content">
+    <div class="photo-grid"></div>
+    <h1 class="post-title"> <%= @posts.title %></h1>
+    <p class="post-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.
+      <%= @posts.description %></p>
+  </main>
   <div class="sidebar">
-    <h1 class="post-title"><%= @posts.title %></h1>
+    <h1 class="post-title"><%= @posts.address %></h1>
 
     <div class="booking-box">
       <p class="rent-per-month">Rent per month</p>

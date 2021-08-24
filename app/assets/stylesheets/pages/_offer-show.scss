@@ -13,4 +13,32 @@
   background-size: cover;
   position: sticky;
   top: 0;
+  height: calc(100vh - 84px);
+}
+
+.post-content {
+  padding: 56px 64px;
+}
+
+
+.photo-grid {
+
+}
+
+
+.post-title {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 28px;
+
+  margin-bottom: 32px;
+}
+
+.post-description {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+
 }
