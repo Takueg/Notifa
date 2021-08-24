@@ -5,8 +5,18 @@
     <div class=homepage-description>
       <h1>We look for rentals<br />on your <span style="color:#5538EE">behalf.</span></h1>
       <h3>Looking for an apartment, room or house?</h3>
-      <p>Notifa contacts you as soon as a rental listing is uploaded<br />anywhere online so you are always the first one to know.</p>
-      <%= link_to "Search now!", "#", class: "btn btn-ghost" %>
+      <p>Notifa contacts you as soon as a rental listing is uploaded anywhere online so you are always the first one to know.</p>
+
+      <%= form_tag new_search_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Please enter city"
+        %>
+        <%= submit_tag "Search", class: "btn btn-ghost" %>
+      <% end %>
+
+      <%#= link_to "Search now!", "#", class: "btn btn-ghost" %>
     </div>
   </div>
 
