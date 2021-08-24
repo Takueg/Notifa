@@ -2,11 +2,15 @@
   <div class="col-12 col-sm-12 col-md-7 col-lg-7">
     <h1 class="text-center mb-3"> Please specify your search</h1>
 
-    <%= simple_form_for @search do |f| %>
+    <%= simple_form_for :search, url: posts_path, method: 'GET' do |f| %>
       <%= f.input :frequency,
-        as: :check_boxes,
-        collection: ["Immediately", "Hourly", "Once a day"],
+        as: :radio_buttons,
+        collection: [["Immediately", "Immediately"], ["Hourly", "Hourly"], ["Once a day", "Once a day"]],
         label: 'How often do you want to be notified?' %>
+      <%= f.input :city,
+        placeholder: 'City',
+        label: false,
+        input_html: { class: 'form-control-lg' } %>
       <%= f.input :preferred_district,
         placeholder: 'Neighborhood',
         label: false,
@@ -16,14 +20,14 @@
         collection: ["Studio", "Apartment", "Private room", "Shared room", "House"],
         label: false,
         input_html: { class: 'form-control-lg' } %>
-      <%= f.input :room,
+      <%#= f.input :room,
         prompt: 'Rooms',
         collection: [1,2,3,4,'5 or more'],
         label: false,
         input_html: { class: 'form-control-lg' } %>
       <%= f.input :min_size,
         prompt: 'Size in sm²',
-        collection: ["> 20 sm²", "> 40 sm²", "> 60 sm²", "> 80 sm²", "> 100 sm²" ],
+        # collection: ["> 20 sm²", "> 40 sm²", "> 60 sm²", "> 80 sm²", "> 100 sm²" ],
         label: false,
         input_html: { class: 'form-control-lg' } %>
       <%= f.input :max_price,
