@@ -72,3 +72,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Geocoding
 gem 'geocoder'
+
+#Cloudinary
+gem 'dotenv-rails', groups: [:development, :test]
+
