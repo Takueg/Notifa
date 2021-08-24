@@ -5,13 +5,15 @@ class PostsController < ApplicationController
     #method that runs search
     search
 
+    @posts = Post.all
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
-    @markers = @posts.geocoded.map do |post|
-      {
-        lat: post.latitude,
-        lng: post.longitude
-      }
-    end
+      @markers = @posts.geocoded.map do |post|
+        {
+          lat: post.latitude,
+          lng: post.longitude,
+          info_window: render_to_string(partial: "info_window", locals: {post: post })
+        }
+      end
   end
 
   def show
