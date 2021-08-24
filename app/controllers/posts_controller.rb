@@ -34,14 +34,23 @@ class PostsController < ApplicationController
       category_address_array = Post.search_strings(category_address_string)
 
       #filtering with price and size
-      @posts = category_address_array.select do |post|
-        post.price < params[:search][:max_price].to_i if post.price
-        post.size > params[:search][:min_size].to_i if post.size
+      @posts = []
+
+      category_address_array.each do |post|
+
+        if post.price && post.price < params[:search][:max_price].to_i
+
+          if post.size && post.size > params[:search][:min_size].to_i
+            @posts << post
+          end
+
+        end
       end
 
     else
-      @posts = Post.all
+      @posts = Post.where(params[:search][:city])
     end
+    raise
   end
 
   def search_save
