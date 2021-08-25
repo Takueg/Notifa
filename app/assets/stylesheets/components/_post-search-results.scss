@@ -1,0 +1,22 @@
+.search-results-and-cards {
+  gap: 24px;
+  padding: 52px 72px;
+}
+
+.search-results {
+  padding-bottom: 40px;
+
+  h2 {
+    font-size: 40px;
+    font-weight: bolder;
+  }
+
+  p {
+    font-size: 16px;
+    color: #72777A;
+  }
+
+  hr.solid {
+  border-top: 2px solid #eee;
+  }
+}

@@ -1,40 +1,75 @@
-.card-  post {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  padding: 100px;
-  border-radius: 10    px;
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
-.card-post > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
 }
 
-.card-post h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
+.card {
+  border-radius: 8px;
+  border: 1px solid #E3E5E5;
+  box-shadow: 0px 2px 25px 5px rgba(0, 0, 0, 0.08);
+  border-style: none;
+  width: 300px;
+  height: 264px;
 }
 
-.card-post p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
+.info {
+  padding: 12px 10px 12px 10px;
 }
 
-.card-post .card-post-infos {
-  padding: 16px;
+.address {
+  padding-bottom: 0px;
+  font-size: 14px;
+  line-height: 0px;
+  padding-top: 8px;
+}
+
+.rooms {
+  font-weight: lighter;
+  font-size: 10px;
+  color: #72777A;
+  line-height: 0px;
+}
+
+.price-date-wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
 }
 
-.card-post-infos .card-post-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+.from-date {
+  background-color: #F2F4F5;
+  border-radius: 4px;
+  padding: 4px 8px 4px 8px;
+  font-size: 10px;
 }
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 24px;
+}
+
+.mins-ago {
+  position: absolute;
+  background-color: #F2F4F5;
+  border-radius: 4px;
+  padding: 4px 8px 4px 8px;
+  font-size: 8px;
+  left: 8px;
+  top: 6px;
+}
+
+.website-logo {
+  position: absolute;
+  right: 10px;
+  top: 154px;
+}
+
+.card-img {
+    border-radius: 8px 8px 0px 0px;
+  }
