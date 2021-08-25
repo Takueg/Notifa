@@ -1,12 +1,18 @@
 <div class="index-container">
   <div class="d-flex align-items-center justify-content-between mb-3">
-    <h3 class="search-list mb-0">Your search <span style="color:#5538EE">lists</span>.</h3>
+    <h3 class="search-list mb-0">Your search <span style="color:#5538EE">lists.</span></h3>
   </div>
-  <small class="lists-count text-muted">xx lists</small>
+  <small class="lists-count text-muted">
+    <% if @searches.count == 1 %>
+      <%= @searches.count %> list
+    <% else %>
+     <%= @searches.count %> lists
+    <% end %>
+    </small>
 <hr>
   <div class="row my-3">
     <% @searches.each do |search| %>
-      <% if search.user_id == 155 %>
+      <%# if search.user_id == current_user.id %>
         <div class="col-12 col-sm-6 col-md-4 mb-3">
           <%= link_to search_path(search), class:'text-decoration-none' do %>
           <div class="searches-card bg-white shadow">
@@ -19,30 +25,26 @@
             </div>
             <div class="p-3 d-flex flex-column">
               <p class="search-district text-decoration-none"><%= search.category %> <span class="text-muted font-weight-normal">, <%= search.city %></span></p>
-      <% end %>
+        <% end %>
               <div class="d-flex align-items-end justify-content-between">
                 <small class="text-muted flex-grow-1"><%= search.user_id %> listings</small>
                 <label class="switch flex-shrink-0">
-                  <input type="checkbox">
+                  <input type="checkbox" checked>
                   <span class="slider round"></span>
                 </label>
               </div>
             </div>
           </div>
         </div>
-      <% end %>
+      <%# end %>
     <% end %>
   </div>
 </div>
 
-<!--
-<div class="image-grid mt-3">
-      <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/collection/404339')">
-      </div>
-  <div class="small-images">
-        <div class="small-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/collection/1118894')">
-        </div>
-        <div class="small-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/collection/145698')">
-        </div>
-  </div>
-</div> -->
+<%# if user_signed_in? %>
+  <!-- <p>yes</p> -->
+  <%#= current_user.id %>
+  <%#= @searches.count %>
+<%# end %>
+
+

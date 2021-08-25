@@ -1,31 +1,57 @@
 
-<div class="container">
-  <h1 class="post-title"><%= @posts.title %></h1>
+<div class="post-grid">
+  <main class="post-content">
+    <div class="photo-grid"></div>
 
-  <div class="booking-box">
-    <p class="rent-per-month">Rent per month</p>
-    <p class="post-price"><%= @posts.price %></p>
-    <p class="from-date">From 1 OCT 2021</p>
-      <div class="booking-card-grid">
-        <div>
-          <i class="ti ti-map-pin icon-size"></i>
-          <p class="card-grid-text">Mitte</p>
-        </div>
-        <div>
-          <i class="ti ti-square icon-size"></i>
-          <p class="card-grid-text">3 rooms</p>
-        </div>
-        <div>
-          <i class="ti ti-home icon-size"></i>
-          <p class="card-grid-text">Shared</p>
-        </div>
-        <div>
-          <i class="ti ti-shape icon-size"></i>
-          <p class="card-grid-text">110 qm2</p>
+
+<!-- Lenas image grid hero -->
+
+      <div class="image-grid mt-3">
+        <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/collection/404339')"></div>
+        <div class="small-images">
+          <div class="small-image-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/collection/1118894')"></div>
+          <div class="small-image-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/collection/145698')"></div>
         </div>
       </div>
 
-    <%= image_tag "logo1.png" , :class => "logo"%>
-    <a class="btn btn-primary" href="https://housinganywhere.com" role="button">Apply <i class="ti ti-external-link icon-size"></i></a>
+<!-- End of Lenas image grid hero -->
+
+
+    <h1 class="post-title"> <%= @posts.title %></h1>
+    <p class="post-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.
+      <%= @posts.description %></p>
+
+
+  </main>
+  <div class="sidebar">
+    <h1 class="post-title"><%= @posts.address %></h1>
+
+    <div class="booking-box">
+      <p class="rent-per-month">Rent per month</p>
+      <p class="post-price"><%= @posts.price %></p>
+      <p class="from-date">From 1 OCT 2021</p>
+        <div class="booking-card-grid">
+          <div>
+            <i class="ti ti-map-pin icon-size"></i>
+            <p class="card-grid-text">Mitte</p>
+          </div>
+          <div>
+            <i class="ti ti-square icon-size"></i>
+            <p class="card-grid-text">3 rooms</p>
+          </div>
+          <div>
+            <i class="ti ti-home icon-size"></i>
+            <p class="card-grid-text">Shared</p>
+          </div>
+          <div>
+            <i class="ti ti-shape icon-size"></i>
+            <p class="card-grid-text">110 qm2</p>
+          </div>
+        </div>
+
+      <%= image_tag "logo1.png" , :class => "logo"%>
+      <a class="btn btn-primary" href="https://housinganywhere.com" role="button">Apply <i class="ti ti-external-link icon-size"></i></a>
+    </div>
   </div>
+
 </div>
