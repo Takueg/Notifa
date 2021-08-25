@@ -5,7 +5,6 @@ class PostsController < ApplicationController
     #method that runs search
     search
 
-    @posts = Post.all
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
       @markers = @posts.geocoded.map do |post|
         {
@@ -46,7 +45,6 @@ class PostsController < ApplicationController
     else
       @posts = Post.where(params[:search][:city])
     end
-    raise
   end
 
   def search_save
