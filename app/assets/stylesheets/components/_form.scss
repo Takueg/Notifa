@@ -25,6 +25,7 @@
   width: 380px;
   background-color: #F2F4F5;
   border-radius: 48px;
+  position: relative;
 }
 
 .ti-arrow-narrow-right {
@@ -43,4 +44,14 @@
   background-color: #F2F4F5;
   padding-right: 69px;
   border-radius: 48px;
+  text-indent: 32px;
+}
+
+.ti-map-pin {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  cursor: pointer;
+  color: #767676;
+  font-size: 18px;
 }
