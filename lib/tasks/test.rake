@@ -28,7 +28,8 @@ namespace :scraper do
 
       article_selector = '.boxedarticle'
       title_selector = '.boxedarticle--title'
-      address_selector = 'span#street-address'
+      street_selector = 'span#street-address'
+      city_selector = 'span#viewad-locality'
       price_selector = '.boxedarticle--price'
       size_selector = '.addetailslist--detail--value'
       images_selector = '.galleryimage-large'
@@ -36,7 +37,11 @@ namespace :scraper do
       description_selector = 'p'
       date_posted_selector = 'div#viewad-extra-info'
       title = show_doc.search(article_selector).search(title_selector).first.content.strip
-      address = show_doc.search(article_selector).search(address_selector).text.strip
+      street = show_doc.search(article_selector).search(street_selector).text.strip
+      city = show_doc.search(article_selector).search(city_selector).text.strip
+      address = street + ", " + city
+      p address
+      next
       price = show_doc.search(article_selector).search(price_selector).first.content.strip
       size = show_doc.search(size_selector)[2]&.text&.strip
       post_url = index_url + card_url
