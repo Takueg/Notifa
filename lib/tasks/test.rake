@@ -36,23 +36,21 @@ namespace :scraper do
       room_selector = '.addetailslist--detail--value'
       description_selector = 'p'
       date_posted_selector = 'div#viewad-extra-info'
-      title = show_doc.search(article_selector).search(title_selector).first.content.strip
-      street = show_doc.search(article_selector).search(street_selector).text.strip
-      city = show_doc.search(article_selector).search(city_selector).text.strip
+      title = show_doc.search(article_selector).search(title_selector).first&.content&.strip
+      street = show_doc.search(article_selector).search(street_selector)&.text.strip
+      city = show_doc.search(article_selector).search(city_selector)&.text.strip
       address = street + ", " + city
-      p address
-      next
-      price = show_doc.search(article_selector).search(price_selector).first.content.strip
+      price = show_doc.search(article_selector).search(price_selector).first&.content.strip
       size = show_doc.search(size_selector)[2]&.text&.strip
       post_url = index_url + card_url
       room = show_doc.search(room_selector)[3]&.text&.strip
-      description = show_doc.search(description_selector).find { |span| span['itemprop'] == 'description' }.text.strip
-      date_posted = show_doc.search(date_posted_selector).text.strip[0..9]
+      description = show_doc.search(description_selector).find { |span| span['itemprop'] == 'description' }&.text.strip
+      date_posted = show_doc.search(date_posted_selector)&.text.strip[0..9]
       company = "ebay-kleinanzeigen"
       image_gallery = show_doc.search(images_selector).first
         image_urls = []
         if image_gallery
-          image_gallery.search("img").each do |image|
+          image_gallery&.search("img").each do |image|
             image_urls << image.attr("src")
           end
         end
