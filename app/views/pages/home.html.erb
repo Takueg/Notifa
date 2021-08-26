@@ -5,19 +5,22 @@
     <div class=homepage-description>
       <h1>We look for rentals<br />on your <span style="color:#5538EE">behalf.</span></h1>
       <h3>Looking for an apartment, room or house?</h3>
-      <!-- <p>Notifa contacts you as soon as a rental listing is uploaded<br />anywhere online so you are always the first one to know.</p> -->
-      <%#= link_to "Search now!", new_search_path, class: "btn btn-ghost" %>
-      <p>Notifa contacts you as soon as a rental listing is uploaded anywhere online so you are always the first one to know.</p>
+      <p>Notifa contacts you as soon as a rental listing is uploaded <br> anywhere online so you are always the first one to know.</p>
 
-      <%= form_tag new_search_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Please enter city"
-        %>
-        <%= submit_tag "Search", class: "btn btn-ghost" %>
-      <% end %>
+      <div class="search-city">
+        <i class="ti ti-map-pin"></i>
+        <%= form_tag new_search_path, method: :get, class: "form-inline" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control-lg city-input",
+            placeholder: "Please enter city"
+          %>
+          <%= button_tag(type: 'submit', class: "btn city-submit") do %>
+           <i class="ti ti-arrow-narrow-right"></i>
+          <% end %>
 
+        <% end %>
+      </div>
     </div>
   </div>
 
