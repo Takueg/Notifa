@@ -36,7 +36,7 @@ namespace :scraper do
       room_selector = '.addetailslist--detail--value'
       description_selector = 'p'
       date_posted_selector = 'div#viewad-extra-info'
-      title = show_doc.search(article_selector).search(title_selector).first&.content.strip
+      title = show_doc.search(article_selector).search(title_selector).first&.content&.strip
       street = show_doc.search(article_selector).search(street_selector)&.text.strip
       city = show_doc.search(article_selector).search(city_selector)&.text.strip
       address = street + ", " + city
