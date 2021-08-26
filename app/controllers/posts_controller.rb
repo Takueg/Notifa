@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   def index
     #method that runs search
     search
-
+    @posts = Post.all
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
       @markers = @posts.geocoded.map do |post|
         {
