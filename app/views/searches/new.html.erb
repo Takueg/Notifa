@@ -1,45 +1,56 @@
-<div class="row">
-  <div class="col-12 col-sm-12 col-md-7 col-lg-7">
-    <h1 class="text-center mb-3"> Please specify your search</h1>
+<%= content_for(:navbar_class, "navbar-home") %>
 
-    <%= simple_form_for :search, url: posts_path, method: 'GET' do |f| %>
-      <%= f.input :frequency,
-        as: :radio_buttons,
-        collection: [["Immediately", "Immediately"], ["Hourly", "Hourly"], ["Once a day", "Once a day"]],
-        label: 'How often do you want to be notified?' %>
-      <%= f.input :city,
-        placeholder: 'City',
-        label: false,
-        input_html: { class: 'form-control-lg' } %>
-      <%= f.input :preferred_district,
-        placeholder: 'Neighborhood',
-        label: false,
-        input_html: { class: 'form-control-lg' } %>
-      <%= f.input :category,
-        prompt: 'Type',
-        collection: ["Studio", "Apartment", "Private room", "Shared room", "House"],
-        label: false,
-        input_html: { class: 'form-control-lg' } %>
-      <%#= f.input :room,
-        prompt: 'Rooms',
-        collection: [1,2,3,4,'5 or more'],
-        label: false,
-        input_html: { class: 'form-control-lg' } %>
-      <%= f.input :min_size,
-        prompt: 'Size in sm²',
-        # collection: ["> 20 sm²", "> 40 sm²", "> 60 sm²", "> 80 sm²", "> 100 sm²" ],
-        label: false,
-        input_html: { class: 'form-control-lg' } %>
-      <%= f.input :max_price,
-        placeholder: 'Max price in €',
-        label: false,
-        input_html: { class: 'form-control-lg' } %>
-      <%= f.button :submit, 'Submit',
-        class: 'btn-primary btn-block btn-lg mt-4' %>
-    <% end %>
+<div class="search-container">
+  <div class="search-left row justify-content-center align-content-center">
+    <div class="search-form col-5">
+      <h3 class="text-center mb-3"> Please specify <br>your<span style="color:#5538EE"> search</span></h3>
+
+      <%= simple_form_for :search, url: posts_path, method: 'GET' do |f| %>
+        <%= f.input :frequency,
+          label: 'How often do you want to be notified?',
+          as: :radio_buttons,
+          collection_wrapper_tag: 'div',
+          collection_wrapper_class: 'category-wrapper',
+          item_wrapper_class: 'category-item',
+          input_html: {class: 'category-selector'},
+          collection: Search::OPTIONS %>
+        <%= f.input :city,
+          placeholder: 'City',
+          label: false,
+          input_html: { class: 'form-control-lg' } %>
+        <%= f.input :preferred_district,
+          placeholder: 'Neighborhood',
+          label: false,
+          input_html: { class: 'form-control-lg' } %>
+        <%= f.input :category,
+          prompt: 'Type',
+          collection: ["Studio", "Apartment", "Private room", "Shared room", "House"],
+          label: false,
+          input_html: { class: 'form-control-lg' } %>
+        <%#= f.input :room,
+          prompt: 'Rooms',
+          collection: [1,2,3,4,'5 or more'],
+          label: false,
+          input_html: { class: 'form-control-lg' } %>
+        <%= f.input :min_size,
+          placeholder: 'Min size in sm²',
+          label: false,
+          input_html: { class: 'form-control-lg' } %>
+        <%= f.input :max_price,
+          placeholder: 'Max price in €',
+          label: false,
+          input_html: { class: 'form-control-lg' } %>
+        <%= f.button :submit, 'Submit',
+          class: 'btn-primary btn-block btn-lg mt-4' %>
+      <% end %>
+
+      <div class="skip-link">
+        <%= link_to "Show me all results for #{@search.city}", posts_url %>
+      </div>
+    </div>
 
   </div>
-  <div class="col-12 col-sm-12 col-md-5 col-lg-5" style="background-color: lightgray;">
-    <h2>image to go here</h2>
+  <div class="search-right">
   </div>
 </div>
+

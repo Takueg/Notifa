@@ -5,6 +5,13 @@ class Post < ApplicationRecord
   after_create do
     puts "Post was created"
     puts self.title
+    puts "finding searches"
+    searches = Search.where(max_price: price..Float::INFINITY).where(min_size: 0..size).where(room: 0..room)
+    p searches
+    searches.each do |search|
+      puts "creating notification"
+      Notification.create(search_id: search.id, post_id: id, is_sent: false)
+    end
   end
 
   geocoded_by :address
@@ -16,5 +23,5 @@ class Post < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
-  
+
 end

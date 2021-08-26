@@ -1,50 +1,46 @@
+.post-grid {
+  display: grid;
+  grid-template-columns: 1fr 440px;
+  min-height: 100%;
+}
+
+.sidebar {
+  display: flex;
+  align-items: center;
+  padding-top: 64px;
+  flex-direction: column;
+  background-image: asset-url("post_banner.png");
+  background-size: cover;
+  position: sticky;
+  top: 0;
+  height: calc(100vh - 84px);
+}
+
+.post-content {
+  padding: 56px 64px;
+}
+
+
+.photo-grid {
+
+}
+
+
 .post-title {
-  font-size: 40px;
-  font-weight: 800;
-
-}
-
-.rent-per-month {
-  font-weight: bold;
-  font-size: 18px;
-  margin-bottom: 0;
-}
-
-.post-price {
-  font-weight: bold;
-  font-size: 38px;
-  margin-bottom: 0px;
-}
-
-.from-date {
-  padding: 12px 16px;
-  background: #F2F4F5;
-  border-radius: 8px;
-  margin-bottom: 35px;
-}
-
-.card-grid-text {
   font-family: Inter;
   font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
+  font-weight: 800;
+  font-size: 28px;
+
+  margin-bottom: 32px;
 }
 
-.icon-size {
-  width: 24px;
-  height: 24px;
-}
-
-.logo {
-  margin-top: 25px;
-  padding: 16px
-}
-
-.btn-primary {
-  width: 263px;
-  height: 48px;
-  background-color: #6B4EFF;
-  border-radius: 48px;
-  padding: 8px;
+.post-description {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
 
 }
+
+
