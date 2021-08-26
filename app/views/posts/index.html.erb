@@ -3,14 +3,16 @@
 
 
   <% @posts.each do |post| %>
-  <div class='card-post'>
-  <div class="card-post-infos">
-        <div>
-          <h2><%= post.address %></h2>
-          <p><%= post.description %></p>
+    <%= link_to post_path(post) do %>
+      <div class='card-post'>
+        <div class="card-post-infos">
+            <div>
+              <h2><%= post.address %></h2>
+              <p><%= post.description %></p>
+            </div>
         </div>
-    </div>
-  </div>
+      </div>
+    <% end %>
   <% end %>
 
 
