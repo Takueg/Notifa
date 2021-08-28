@@ -11,4 +11,8 @@ class Search < ApplicationRecord
   # validates :room, numericality: { only_integer: true }
 
   OPTIONS = ["Immediately", "Hourly", "Daily"]
+
+  def title
+    super || "#{city}, #{category}"
+  end
 end
