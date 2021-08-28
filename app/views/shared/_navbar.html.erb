@@ -7,12 +7,27 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <form action="" class="navbar-search">
+  <!-- <form action="" class="navbar-search">
     <input type="text" class="navbar-search-input" placeholder="Search">
     <button type="submit" class="navbar-search-btn">
       <i class="fa fa-search"></i>
     </button>
   </form>
+ -->
+  <div class="search-city">
+        <i class="ti ti-search"></i>
+        <%= form_tag new_search_path, method: :get, class: "form-inline" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control-lg city-input",
+            placeholder: "Search"
+          %>
+          <%= button_tag(type: 'submit', class: "btn navar-submit") do %>
+           <i class="ti ti-arrow-narrow-right"></i>
+          <% end %>
+
+        <% end %>
+      </div>
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
