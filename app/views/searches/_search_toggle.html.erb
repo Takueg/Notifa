@@ -1,0 +1,7 @@
+<%= simple_form_for(search) do |f| %>
+  <div id="sweet-alert-demo">
+    <%= search.id %>
+    <%= f.input :activated, input_html: { class: "" }, value: search.activated %>
+  </div>
+  <%= f.submit %>
+<% end %>
