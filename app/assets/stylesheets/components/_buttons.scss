@@ -29,3 +29,11 @@
   opacity: 0.7;
   color: white;
 }
+
+.swal-button {
+  background-color: #8876ed;
+
+    &:hover {
+      background-color: #5538EE !important;
+    }
+}

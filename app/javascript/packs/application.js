@@ -24,6 +24,7 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import { initSweetalert } from '../plugins/init_sweetalert';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -39,3 +40,13 @@ import { initMapbox } from '../plugins/init_mapbox';
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
 })
+
+// Sweet Alert
+initSweetalert('#sweet-alert-demo', {
+  title: "Successful!",
+  text: "You changed your settings.",
+  icon: "success"
+}, (value) => {
+  console.log(value);
+});
+
