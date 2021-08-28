@@ -1,7 +1,7 @@
 # Preview all emails at http://localhost:3000/rails/mailers/notification_mailer
 class NotificationMailerPreview < ActionMailer::Preview
 
-  # Preview this email at http://localhost:3000/rails/mailers/notification_mailer/notify
+  # Preview this email at http://localhost:3000/rails/mailers/notification_mailer/create_notification
   def create_notification
     search = Search.first
     NotificationMailer.with(search: search).create_notification.deliver_now

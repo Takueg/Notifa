@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 2021_08_28_103549) do
     t.string "company"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image_urls", default: [], array: true
     t.float "latitude"
     t.float "longitude"
-    t.string "image_urls", default: [], array: true
   end
 
   create_table "searches", force: :cascade do |t|

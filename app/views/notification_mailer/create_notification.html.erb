@@ -7,8 +7,8 @@
 <ul>
   <% @search.unsent_notifications.each do |notification| %>
     <li><%= notification.post.title %></li>
-    <li><%= notification.post.price %></li>
-    <li><%= notification.post.size %></li>
+    <li><%= notification.post.price %> €</li>
+    <li><%= notification.post.size %> m2</li>
     <li><%= notification.post.room %></li>
     <li><%= notification.post.post_url %></li>
   <% end %>
