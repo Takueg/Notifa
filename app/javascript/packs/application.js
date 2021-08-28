@@ -39,3 +39,13 @@ import { initMapbox } from '../plugins/init_mapbox';
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
 })
+
+// Sweet Alert
+import { initSweetalert } from '../plugins/init_sweetalert';
+
+initSweetalert('#sweet-alert-demo', {
+  title: "Successful!",
+  text: "You changed your settings.",
+  icon: "success"
+});
+
