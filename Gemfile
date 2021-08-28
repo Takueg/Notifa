@@ -32,6 +32,8 @@ gem 'devise'
 
 gem 'pg_search'
 
+gem 'letter_opener', group: :development
+
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
@@ -75,4 +77,3 @@ gem 'geocoder'
 
 #Cloudinary
 gem 'cloudinary', '~> 1.16.0'
-
