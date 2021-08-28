@@ -42,10 +42,12 @@
           input_html: { class: 'form-control-lg' } %>
         <%= f.button :submit, 'Submit',
           class: 'btn-primary btn-block btn-lg mt-4' %>
+
+
       <% end %>
 
       <div class="skip-link">
-        <%= link_to "Show me all results for #{@search.city}", posts_url %>
+        <%= link_to "Show me all results for #{@search.city}", posts_url(search: {city: params[:query]}) %>
       </div>
     </div>
 
