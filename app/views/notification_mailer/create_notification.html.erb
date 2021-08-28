@@ -1,0 +1,18 @@
+<h1>Search results for <%=@search.title%></h1>
+
+<p>Hi <%= @search.user.first_name %>,</p>
+
+<p>We have found the following flats for your search:</p>
+
+<ul>
+  <% @search.unsent_notifications.each do |notification| %>
+    <li><%= notification.post.title %></li>
+    <li><%= notification.post.price %></li>
+    <li><%= notification.post.size %></li>
+    <li><%= notification.post.room %></li>
+    <li><%= notification.post.post_url %></li>
+  <% end %>
+</ul>
+
+
+<p>See ya!</p>

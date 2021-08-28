@@ -2,27 +2,33 @@
   display: grid;
   grid-template-columns: 1fr 440px;
   min-height: 100%;
+  margin: 68px;
 }
 
 .sidebar {
   display: flex;
   align-items: center;
-  padding-top: 64px;
+  padding-top: 150px;
   flex-direction: column;
   background-image: asset-url("post_banner.png");
   background-size: cover;
-  position: sticky;
+  position: fixed;
   top: 0;
-  height: calc(100vh - 84px);
+  height: 100vh;
+  width: 500px;
+  right: 0;
+  // height: calc(100vh - 84px);
 }
 
 .post-content {
-  padding: 56px 64px;
+  padding: 80px 64px 64px 0;
 }
 
 
-.photo-grid {
-
+body > div > main > div > main > .post-title {
+  padding: 0 260px 0 0;
+  margin-top: 40px;
+  margin-bottom: 32px;
 }
 
 
@@ -31,8 +37,8 @@
   font-style: normal;
   font-weight: 800;
   font-size: 28px;
-
-  margin-bottom: 32px;
+  padding: 0 58px;
+  margin: 0;
 }
 
 .post-description {
@@ -40,7 +46,8 @@
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
-
+  padding-right: 200px;
+  color: #72777A;
 }
 
 
