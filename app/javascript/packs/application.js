@@ -42,7 +42,6 @@ document.addEventListener('turbolinks:load', () => {
 })
 
 // Sweet Alert
-
 initSweetalert('#sweet-alert-demo', {
   title: "Successful!",
   text: "You changed your settings.",
