@@ -4,6 +4,8 @@ class PostsController < ApplicationController
   def index
     #method that runs search
     search
+    @posts = Post.all
+
     post_ids = @posts.map { |post| post.id }
 
     @posts = Post.where(id: post_ids)
@@ -56,3 +58,4 @@ class PostsController < ApplicationController
       :min_size, :room, :category, :frequency, :user_id)
   end
 end
+
