@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   def index
     #method that runs search
     search
+
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
       @markers = @posts.geocoded.map do |post|
         {
@@ -19,6 +20,12 @@ class PostsController < ApplicationController
   end
 
   def create
+  end
+
+  def mins_ago
+    start_time = post.date_posted
+    end_time = Time.new
+    TimeDifference.between(start_time, end_time).in_minutes
   end
 
   private
@@ -53,3 +60,4 @@ class PostsController < ApplicationController
       :min_size, :room, :category, :frequency, :user_id)
   end
 end
+

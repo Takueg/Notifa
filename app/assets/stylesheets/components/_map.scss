@@ -12,6 +12,17 @@
 .mapboxgl-popup-content {
   text-align: left;
   font-family: 'Open Sans', sans-serif;
+
+    .cards {
+    grid-template-columns: 1fr;
+      .card {
+        width: auto;
+        .card-img {
+          object-fit: cover;
+          width: 220px;
+        }
+      }
+  }
 }
 
 // .card-map {
@@ -22,3 +33,4 @@
 //   width: 200px;
 //   height: 160px;
 // }
+
