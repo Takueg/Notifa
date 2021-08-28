@@ -1,6 +1,7 @@
 class Search < ApplicationRecord
   belongs_to :user
   has_many :notifications, dependent: :destroy
+  has_many :unsent_notifications, -> { where(is_sent: nil) }, foreign_key: :search_id, class_name: "Notification", dependent: :destroy
   has_many :posts, through: :notifications
 
   validates :user, presence: true
@@ -11,4 +12,6 @@ class Search < ApplicationRecord
   # validates :room, numericality: { only_integer: true }
 
   OPTIONS = ["Immediately", "Hourly", "Daily"]
+
+
 end
