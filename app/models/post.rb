@@ -19,7 +19,7 @@ class Post < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_strings,
-    against: [ :category, :address ],
+    against: [ :category, :address, :title ],
     using: {
       tsearch: { prefix: true }
     }

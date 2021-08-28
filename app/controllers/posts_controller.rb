@@ -4,7 +4,6 @@ class PostsController < ApplicationController
   def index
     #method that runs search
     search
-
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
       @markers = @posts.geocoded.map do |post|
         {
@@ -16,7 +15,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @posts = Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def create
@@ -30,20 +29,15 @@ class PostsController < ApplicationController
       search_save
       # pg searching string columns address and category
       category_address_string = params[:search].values_at("city", "preferred_district", "category").join(" ")
-      category_address_array = Post.search_strings(category_address_string)
+      @posts = Post.search_strings(category_address_string)
 
-      #filtering with price and size
-      @posts = []
-
-      category_address_array.each do |post|
-        if post.price && post.price < params[:search][:max_price].to_i
-          if post.size && post.size > params[:search][:min_size].to_i
-            @posts << post
-          end
-        end
+      if params[:search][:max_price] != ""
+        @posts = @posts.where(price: 0..params[:search][:max_price].to_i).or(@posts.where(price: [nil, ""]))
       end
-    else
-      @posts = Post.where(params[:search][:city])
+
+      if params[:search][:min_size] != ""
+        @posts = @posts.where(size: params[:search][:min_size].to_i..Float::INFINITY).or(@posts.where(size: [nil, ""]))
+      end
     end
   end
 
