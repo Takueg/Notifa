@@ -1,0 +1,41 @@
+body > div > main > div > main > .image-grid {
+  display: flex;
+  height: 480px;
+  position: relative;
+}
+
+
+body > div > main > div > main > div > div.large-image {
+  flex-grow: 1;
+  height: 480px;
+  width: 100%;
+  margin-right: 10px;
+  background-size: cover;
+  background-position: center;
+}
+
+.small-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 480px;
+  grid-gap: 10px;
+
+  .small-image {
+    background-size: cover;
+    background-position: center;
+    height: 235px;
+    width: 250px;
+  }
+}
+
+.time-posted {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background-color: #F2F4F5;
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 14px;
+  line-height: 0px;
+}
