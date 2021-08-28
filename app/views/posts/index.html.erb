@@ -8,12 +8,14 @@
     <div class="cards">
           <% @posts.each do |post| %>
           <%= link_to post_path(post) do %>
-          <div class='card'>
-            <p class="mins-ago">5 min ago</p>
-            <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2689&q=80" class="card-img">
+          <div class="card">
+            <p class="mins-ago">5 mins ago</p>
+            <object data="<%= post.image_urls.first %>" class="card-img">
+              <img src='https://res.cloudinary.com/dvokz7e90/image/upload/v1630159816/no_image_placeholder_zddizt.jpg' class="card-img"/>
+            </object>
             <div class="info">
             <img src='https://res.cloudinary.com/dvokz7e90/image/upload/v1629824336/Screenshot_2021-08-24_at_18.54.52_t10n0o.png' class="website-logo avatar-bordered"/>
-              <p class="address"><%= post.address %></p>
+              <p class="address"><%= post.address.split.last %></p>
               <p class="rooms"><%= post.room %> rooms • <%= post.size %> m2</p>
               <div class="price-date-wrapper">
                 <p class="from-date">From 13 SEP 2021</p>

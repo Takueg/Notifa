@@ -26,6 +26,12 @@ class PostsController < ApplicationController
   def create
   end
 
+  def mins_ago
+    start_time = post.date_posted
+    end_time = Time.new
+    TimeDifference.between(start_time, end_time).in_minutes
+  end
+
   private
 
   def search
