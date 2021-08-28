@@ -23,11 +23,24 @@ class SearchesController < ApplicationController
     render :new if !@search.valid?
   end
 
+  def edit
+    @search = Search.find(params[:id])
+  end
+
+  def update
+    @search = Search.find(params[:id])
+      if @search.update(search_params)
+        redirect_back fallback_location: searches_path
+      else
+        render :edit
+      end
+  end
+
   private
 
   def search_params
     params.require(:search).permit(:city, :preferred_district, :max_price,
-      :min_size, :room, :category, :frequency, :user_id)
+      :min_size, :room, :category, :frequency, :user_id, :activated)
   end
 
 end
