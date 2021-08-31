@@ -2,7 +2,9 @@ class SearchesController < ApplicationController
 
   def index
     # @searches = Search.all
-    @searches = Search.where(user_id: current_user.id)
+    # @searches = Search.all.includes(:posts)
+    # @searches = Search.where(user_id: current_user.id)
+    @searches = Search.where(user_id: current_user.id).includes(:posts)
   end
 
   def new
