@@ -39,7 +39,11 @@
           </div>
           <div>
             <i class="ti ti-square icon-size"></i>
-            <p class="card-grid-text">3 rooms</p>
+            <% if @post.room == 1 %>
+              <p class="card-grid-text"><%= @post.room %> room</p>
+            <% else %>
+              <p class="card-grid-text"><%= @post.room %> rooms</p>
+            <% end %>
           </div>
           <div>
             <i class="ti ti-home icon-size"></i>
