@@ -6,9 +6,9 @@
   height: 100vh;
 }
 
-// .homepage-left {
-//   flex-shrink: 0;
-// }
+.homepage-left {
+  margin: auto 70px;
+}
 
 .homepage-right {
   min-height: 100vh;
@@ -24,8 +24,6 @@
 }
 
 .homepage-description {
-  margin-top: 276px;
-  margin-left: 70px;
   margin-right: 48px;
   white-space: nowrap;
 }
@@ -34,13 +32,13 @@
   font-weight: 800;
   font-size: 64px;
   line-height: 68px;
-  min-height: 164px;
-  font-family:'Inter', sans-serif;
+  max-height: 164px;
+  font-family: 'Inter', sans-serif;
   // width: 606px;
 }
 
 .homepage-description h3 {
-  margin-top: 21px;
+  margin-top: 48px;
   font-weight: 600;
   font-size: 18px;
   line-height: 22px;

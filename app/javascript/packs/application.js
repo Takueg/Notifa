@@ -36,6 +36,8 @@ document.addEventListener('turbolinks:load', () => {
 
 // Mapbox
 import { initMapbox } from '../plugins/init_mapbox';
+// Search from toggle
+import { initToggleSearchForm } from '../components/search_form';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
