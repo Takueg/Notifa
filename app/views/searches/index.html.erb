@@ -28,8 +28,11 @@
         <% end %>
               <div class="d-flex align-items-end justify-content-between">
                 <small class="text-muted flex-grow-1"><%= search.user_id %> listings</small>
-                <div class="flex-shrink-0">
-                  <%= render "search_toggle", search: search %>
+                <!-- <button id="delete-sweet-alert" class="btn btn-danger">Delete</button> -->
+                <%#= link_to "delete", search_path(search), method: :delete, id: "delete-link", class: "hidden" %>
+                <div class="flex-shrink-0" id="sweet-alert-demo">
+                  <%#= render "search_toggle", search: search %>
+                  <%= link_to 'delete', search_path(search), method: :delete, class: 'btn btn-black', data: { confirm: 'Are you sure you want to delete this list?' } %>
                 </div>
               </div>
             </div>

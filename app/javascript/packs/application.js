@@ -25,6 +25,7 @@ require("channels")
 // External imports
 import "bootstrap";
 import { initSweetalert } from '../plugins/init_sweetalert';
+import { deleteSweetalert } from '../plugins/init_sweetalert';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -49,4 +50,3 @@ initSweetalert('#sweet-alert-demo', {
 }, (value) => {
   console.log(value);
 });
-

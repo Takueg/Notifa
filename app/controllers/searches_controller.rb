@@ -35,6 +35,12 @@ class SearchesController < ApplicationController
     @search = Search.find(params[:id])
   end
 
+  def destroy
+    @search = Search.find(params[:id])
+    @search.destroy
+    redirect_to searches_path
+  end
+
   private
 
   def search_params
