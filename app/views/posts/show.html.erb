@@ -35,11 +35,15 @@
         <div class="booking-card-grid">
           <div>
             <i class="ti ti-map-pin icon-size icon-position"></i>
-            <p class="card-grid-text">Mitte</p>
+            <p class="card-grid-text"><%= @post.address.split("-")[-1].strip if @post.company == "ebay-kleinanzeigen" %></p>
           </div>
           <div>
             <i class="ti ti-square icon-size"></i>
-            <p class="card-grid-text">3 rooms</p>
+            <% if @post.room == 1 %>
+              <p class="card-grid-text"><%= @post.room %> room</p>
+            <% else %>
+              <p class="card-grid-text"><%= @post.room %> rooms</p>
+            <% end %>
           </div>
           <div>
             <i class="ti ti-home icon-size"></i>
@@ -47,12 +51,12 @@
           </div>
           <div>
             <i class="ti ti-shape icon-size"></i>
-            <p class="card-grid-text">110 qm2</p>
+            <p class="card-grid-text"><%= @post.size %> sm²</p>
           </div>
         </div>
 
       <%= image_tag "ebay-kleinanzeigen-logo.png" , :class => "logo" if @post.company == "ebay-kleinanzeigen" %>
-      <a class="btn btn-primary" href="https://housinganywhere.com" role="button">Apply <i class="ti ti-external-link icon-size"></i></a>
+      <a class="btn btn-primary" href="<%= @post.post_url %>" target=”_blank” role="button">Apply <i class="ti ti-external-link icon-size"></i></a>
     </div>
   </div>
 

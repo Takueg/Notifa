@@ -3,8 +3,12 @@ class PostsController < ApplicationController
 
   def index
     #method that runs search
-    search
 
+    if params[:search].present?
+      search
+    else
+      @posts = Post.all
+    end
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
       @markers = @posts.geocoded.map do |post|
         {
@@ -31,20 +35,18 @@ class PostsController < ApplicationController
   private
 
   def search
-    if params[:search].present?
-      #saving search
-      search_save
-      # pg searching string columns address and category
-      category_address_string = params[:search].values_at("city", "preferred_district", "category").join(" ")
-      @posts = Post.search_strings(category_address_string)
+    #saving search
+    search_save
+    # pg searching string columns address and category
+    category_address_string = params[:search].values_at("city", "preferred_district", "category").join(" ")
+    @posts = Post.search_strings(category_address_string)
 
-      if params[:search][:max_price] != ""
-        @posts = @posts.where(price: 0..params[:search][:max_price].to_i).or(@posts.where(price: [nil, ""]))
-      end
+    if params[:search][:max_price].present?
+      @posts = @posts.where(price: 0..params[:search][:max_price].to_i).or(@posts.where(price: [nil, ""]))
+    end
 
-      if params[:search][:min_size] != ""
-        @posts = @posts.where(size: params[:search][:min_size].to_i..Float::INFINITY).or(@posts.where(size: [nil, ""]))
-      end
+    if params[:search][:min_size].present?
+      @posts = @posts.where(size: params[:search][:min_size].to_i..Float::INFINITY).or(@posts.where(size: [nil, ""]))
     end
   end
 
