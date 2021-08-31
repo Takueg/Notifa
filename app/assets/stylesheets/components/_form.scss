@@ -3,6 +3,8 @@
    h3 {
      line-height: 48px;
      padding-bottom: 24px;
+     font-size: clamp(1.5rem, 3vw, 2.5rem);
+     line-height: clamp(2rem, 3vw, 3rem);
   }
 
   .col-form-label {
@@ -15,10 +17,11 @@
 .form-control-lg {
   border-radius: 8px;
   font-size: 18px;
+  color: #72777A;
 }
 
 .form-control {
-  border: 1px solid #CDCFD0;
+  border: 1px solid #E3E5E6;
 }
 
 .search-city {
