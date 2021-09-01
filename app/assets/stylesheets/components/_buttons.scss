@@ -1,3 +1,16 @@
+.btn-notifa {
+  background: $notifa-purple;
+  border-radius: 48px;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+
+  &:hover {
+    color: white;
+  }
+}
+
 .btn-ghost {
   color: #4A4A4A;
   border: 1px solid #4A4A4A;
