@@ -15,5 +15,6 @@ class Search < ApplicationRecord
     super || "#{city}, #{category}"
   end
 
-  OPTIONS = ["Immediately", "Hourly", "Daily"]
+  FREQUENCY_OPTIONS = ["Immediately", "Hourly", "Daily"]
+  CHANNEL_OPTIONS = ["Email", "SMS", "Slack"]
 end
