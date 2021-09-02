@@ -12,18 +12,37 @@
 <hr>
   <div class="row my-3">
     <% @searches.each do |search| %>
-        <%#= images = search.posts.pluck(:image_urls) %>
-        <% images = search.posts.pluck(:image_urls)[0].to_a %>
+        <% images = search.posts.pluck(:image_urls).flatten %>
         <div class="col-12 col-sm-6 col-md-4 mb-3">
           <%= link_to posts_path, class:'text-decoration-none' do %>
           <div class="searches-card bg-white shadow">
             <div class="image-grid mt-3">
-              <!-- <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/collection/404339')"></div> -->
-              <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= images[0] %>')"></div>
-              <div class="small-images">
-                <div class="small-image-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= images[1]%>')"></div>
-                <div class="small-image-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= images[2]%>')"></div>
-              </div>
+              <% if images.count > 2 %>
+                <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= images[0] %>')"></div>
+                <div class="small-images">
+                  <div class="small-image-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= images[1]%>')"></div>
+                  <div class="small-image-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= images[2]%>')"></div>
+                </div>
+              <% elsif images.count == 2 %>
+                <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= images[0] %>')"></div>
+                <div class="small-images">
+                  <div class="small-image-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= images[1]%>')"></div>
+                  <div class="small-image-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('PLACEHOLDER COMES HERE')"></div>
+                </div>
+              <% elsif images.count == 1 %>
+                <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= images[0] %>')"></div>
+                <div class="small-images">
+                  <div class="small-image-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('PLACEHOLDER COMES HERE')"></div>
+                  <div class="small-image-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('PLACEHOLDER COMES HERE')"></div>
+                </div>
+              <% else %>
+                <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('PLACEHOLDER COMES HERE')"></div>
+                <div class="small-images">
+                  <div class="small-image-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('PLACEHOLDER COMES HERE')"></div>
+                  <div class="small-image-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('PLACEHOLDER COMES HERE')"></div>
+                </div>
+              <% end %>
+
             </div>
             <div class="p-3 d-flex flex-column">
               <p class="search-district text-decoration-none"><%= search.title %> <span class="text-muted font-weight-normal">, <%= search.city %></span></p>
