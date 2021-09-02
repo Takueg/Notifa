@@ -10,13 +10,12 @@ Post.destroy_all
 puts 'Creating First User'
 
 User.create!(
-    email: 'notifa@notifa.com',
+    email: 'Lena, Taku etc.',
     password: '12345678',
     first_name: 'Notifa',
     last_name: 'Notifa'
     )
 
-puts 'Creating 20 fake users...'
 
 # 20.times do
 #   User.create!(
