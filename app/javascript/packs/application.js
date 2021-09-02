@@ -37,19 +37,21 @@ document.addEventListener('turbolinks:load', () => {
 
 // Mapbox
 import { initMapbox } from '../plugins/init_mapbox';
-// Search from toggle
+// Search form page toggle
 import { initToggleSearchForm } from '../components/search_form';
 
 document.addEventListener('turbolinks:load', () => {
-  initToggleSearchForm()
+  initToggleSearchForm();
   initMapbox();
 })
 
 // Sweet Alert
-initSweetalert('#sweet-alert-demo', {
-  title: "Successful!",
-  text: "You changed your settings.",
+
+initSweetalert('.search-saved-sweet-alert', {
+  title: "Search saved!",
+  text: "We will notify you when we find something.",
   icon: "success"
 }, (value) => {
-  console.log(value);
+  const form = document.querySelector("form");
+  form.submit()
 });
