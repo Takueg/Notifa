@@ -27,19 +27,19 @@
                 <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= images[0] %>')"></div>
                 <div class="small-images">
                   <div class="small-image-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= images[1]%>')"></div>
-                  <div class="small-image-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('PLACEHOLDER COMES HERE')"></div>
+                  <div class="small-image-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "no_image_available.svg" %>')"></div>
                 </div>
               <% elsif images.count == 1 %>
                 <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= images[0] %>')"></div>
                 <div class="small-images">
-                  <div class="small-image-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('PLACEHOLDER COMES HERE')"></div>
-                  <div class="small-image-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('PLACEHOLDER COMES HERE')"></div>
+                  <div class="small-image-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "no_image_available.svg" %>')"></div>
+                  <div class="small-image-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "no_image_available.svg" %>')"></div>
                 </div>
               <% else %>
-                <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('PLACEHOLDER COMES HERE')"></div>
+                <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "no_image_available.svg" %>')"></div>
                 <div class="small-images">
-                  <div class="small-image-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('PLACEHOLDER COMES HERE')"></div>
-                  <div class="small-image-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('PLACEHOLDER COMES HERE')"></div>
+                  <div class="small-image-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "no_image_available.svg" %>')"></div>
+                  <div class="small-image-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path "no_image_available.svg" %>)"></div>
                 </div>
               <% end %>
 
