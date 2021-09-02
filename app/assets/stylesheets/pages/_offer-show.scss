@@ -5,10 +5,13 @@
   margin: 68px 52px;
 }
 
+.post-info {
+  max-width: 80%;
+}
+
 .sidebar {
   display: flex;
   align-items: center;
-  // padding-top: 150px;
   flex-direction: column;
   background-image: asset-url("post_banner.png");
   background-size: cover;
@@ -17,7 +20,6 @@
   min-height: 100vh;
   max-width: 440px;
   right: 0;
-  // height: calc(100vh - 84px);
 }
 
 .post-content {
@@ -25,8 +27,8 @@
 }
 
 
-body > div > main > div > main > .post-title {
-  padding: 58px 260px 58px 0;
+body > div > main > div > main > div.post-info > h1 {
+  padding: 58px 0;
 }
 
 
@@ -45,7 +47,6 @@ body > div > main > div > main > .post-title {
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
-  padding-right: 200px;
   color: #72777A;
 }
 
