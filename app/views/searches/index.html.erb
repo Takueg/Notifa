@@ -12,24 +12,48 @@
 <hr>
   <div class="row my-3">
     <% @searches.each do |search| %>
+        <% images = search.posts.pluck(:image_urls).flatten %>
         <div class="col-12 col-sm-6 col-md-4 mb-3">
           <%= link_to posts_path, class:'text-decoration-none' do %>
           <div class="searches-card bg-white shadow">
             <div class="image-grid mt-3">
-              <!-- <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/collection/404339')"></div> -->
-              <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/collection/404339')"></div>
-              <div class="small-images">
-                <div class="small-image-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/collection/1118894')"></div>
-                <div class="small-image-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/collection/145698')"></div>
-              </div>
+              <% if images.count > 2 %>
+                <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= images[0] %>')"></div>
+                <div class="small-images">
+                  <div class="small-image-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= images[1]%>')"></div>
+                  <div class="small-image-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= images[2]%>')"></div>
+                </div>
+              <% elsif images.count == 2 %>
+                <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= images[0] %>')"></div>
+                <div class="small-images">
+                  <div class="small-image-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= images[1]%>')"></div>
+                  <div class="small-image-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "no_image_available.svg" %>')"></div>
+                </div>
+              <% elsif images.count == 1 %>
+                <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= images[0] %>')"></div>
+                <div class="small-images">
+                  <div class="small-image-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "no_image_available.svg" %>')"></div>
+                  <div class="small-image-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "no_image_available.svg" %>')"></div>
+                </div>
+              <% else %>
+                <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "no_image_available.svg" %>')"></div>
+                <div class="small-images">
+                  <div class="small-image-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "no_image_available.svg" %>')"></div>
+                  <div class="small-image-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path "no_image_available.svg" %>)"></div>
+                </div>
+              <% end %>
+
             </div>
             <div class="p-3 d-flex flex-column">
-              <p class="search-district text-decoration-none"><%= search.category %> <span class="text-muted font-weight-normal">, <%= search.city %></span></p>
+              <p class="search-district text-decoration-none"><%= search.title %><span class="text-muted font-weight-normal">, <%= search.city %></span></p>
         <% end %>
               <div class="d-flex align-items-end justify-content-between">
-                <small class="text-muted flex-grow-1"><%= search.user_id %> listings</small>
-                <div class="flex-shrink-0">
-                  <%= render "search_toggle", search: search %>
+                <small class="text-muted flex-grow-1"><%= search.posts.count %> listings</small>
+                <!-- <button id="delete-sweet-alert" class="btn btn-danger">Delete</button> -->
+                <%#= link_to "delete", search_path(search), method: :delete, id: "delete-link", class: "hidden" %>
+                <div class="flex-shrink-0" id="sweet-alert-demo">
+                  <%#= render "search_toggle", search: search %>
+                  <%= link_to 'delete', search_path(search), method: :delete, class: 'btn btn-black', data: { confirm: 'Are you sure you want to delete this list?' } %>
                 </div>
               </div>
             </div>

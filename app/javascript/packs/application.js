@@ -54,4 +54,3 @@ initSweetalert('.search-saved-sweet-alert', {
   const form = document.querySelector("form");
   form.submit()
 });
-

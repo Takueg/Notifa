@@ -11,7 +11,7 @@
   <div class="search-city">
       <% unless ["new", "home"].include?(params[:action]) %>
         <i class="ti ti-search"></i>
-        <%= form_tag new_search_path, method: :get, class: "form-inline" do %>
+        <%= form_tag new_search_path, method: :get, class: "form" do %>
           <%= text_field_tag :query,
             params[:query],
             class: "form-control city-input",
