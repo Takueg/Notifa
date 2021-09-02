@@ -5,6 +5,7 @@
   position: fixed;
   width: 100%;
   z-index: 5;
+  padding: 0;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -34,6 +35,9 @@
     color: white;
     font-weight: bold;
   }
+  .search-city {
+
+  }
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -47,9 +51,37 @@
 
 .ti-search {
   position: absolute;
-  top: 12px;
+  top: 11px;
   left: 12px;
   cursor: pointer;
   color: #767676;
   font-size: 18px;
 }
+
+.navbar-submit {
+  // border-radius: 24px;
+  // background-color: $notifa-purple;
+  // padding-left: 0 12px;
+
+  position: absolute;
+  top: 13px;
+  left: 12px;
+  cursor: pointer;
+  color: #767676;
+  font-size: 18px;
+}
+
+.city-submit {
+  border-radius: 24px;
+  background-color: $notifa-purple;
+  padding: 0 24px;
+}
+
+.city-input {
+  border: 0;
+  background-color: #F2F4F5;
+  padding-right: 69px;
+  border-radius: 48px;
+  text-indent: 32px;
+}
+
