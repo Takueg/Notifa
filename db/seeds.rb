@@ -7,16 +7,38 @@ Search.destroy_all
 puts "destroy all posts"
 Post.destroy_all
 
-puts 'Creating First User'
+puts 'Creating Users'
 
 User.create!(
-    email: 'Lena, Taku etc.',
+    email: 'lena.oberherr@gmail.com',
     password: '12345678',
-    first_name: 'Notifa',
-    last_name: 'Notifa'
+    first_name: 'Lena',
+    last_name: 'Oberherr'
     )
-
-
+User.create!(
+    email: 'takueg@gmail.com',
+    password: '12345678',
+    first_name: 'Takudzwa',
+    last_name: 'Gwindingwi'
+    )
+User.create!(
+    email: 'jcasoya@gmail.com',
+    password: '12345678',
+    first_name: 'Jorge',
+    last_name: 'Cases'
+    )
+User.create!(
+    email: 'tyras.torsten@gmail.com',
+    password: '12345678',
+    first_name: 'Jonathan',
+    last_name: 'Scheffbuch'
+    )
+User.create!(
+    email: 'tyras.torsten@gmail.com',
+    password: '12345678',
+    first_name: 'Torsten',
+    last_name: 'Tyras'
+    )
 # 20.times do
 #   User.create!(
 #     email: Faker::Internet.email,
