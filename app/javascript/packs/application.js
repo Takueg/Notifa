@@ -40,6 +40,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initToggleSearchForm } from '../components/search_form';
 
 document.addEventListener('turbolinks:load', () => {
+  initToggleSearchForm()
   initMapbox();
 })
 
