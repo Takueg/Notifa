@@ -7,6 +7,14 @@ Search.destroy_all
 puts "destroy all posts"
 Post.destroy_all
 
+# ----------------------------------------------------
+# Creating Notifications #
+# has to be copied and pushed at once in the console:
+# ----------------------------------------------------
+# Search.all.each do |search|
+#   search.notifications.create(post: Post.all.sample)
+# end
+
 puts 'Creating Users'
 
 User.create!(
@@ -27,12 +35,12 @@ User.create!(
     first_name: 'Jorge',
     last_name: 'Cases'
     )
-User.create!(
-    email: 'tyras.torsten@gmail.com',
-    password: '12345678',
-    first_name: 'Jonathan',
-    last_name: 'Scheffbuch'
-    )
+# User.create!(
+#     email: '????',
+#     password: '12345678',
+#     first_name: 'Jonathan',
+#     last_name: 'Scheffbuch'
+#     )
 User.create!(
     email: 'tyras.torsten@gmail.com',
     password: '12345678',
