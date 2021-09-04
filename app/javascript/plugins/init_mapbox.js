@@ -20,7 +20,10 @@ const initMapbox = () => {
     const markers = JSON.parse(mapElement.dataset.markers);
       markers.forEach((marker) => {
         const popup = new mapboxgl.Popup().setHTML(marker.info_window);
-        new mapboxgl.Marker()
+        const element = document.createElement('div');
+        element.className = 'price-tag'
+        element.innerHTML = marker.post.price;
+        new mapboxgl.Marker(element)
           .setLngLat([ marker.lng, marker.lat ])
           .setPopup(popup)
           .addTo(map);
