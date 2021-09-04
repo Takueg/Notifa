@@ -20,7 +20,10 @@ const initMapbox = () => {
     const markers = JSON.parse(mapElement.dataset.markers);
       markers.forEach((marker) => {
         const popup = new mapboxgl.Popup().setHTML(marker.info_window);
-        new mapboxgl.Marker()
+        const element = document.createElement('div');
+        element.className = 'price-tag'
+        element.innerHTML = marker.post.price;
+        new mapboxgl.Marker(element)
           .setLngLat([ marker.lng, marker.lat ])
           .setPopup(popup)
           .addTo(map);
@@ -31,3 +34,14 @@ const initMapbox = () => {
 };
 
 export { initMapbox };
+
+// markers.forEach( => {
+//       const element = document.createElement('div');
+//       element.innerHTML = post.price;
+//       element.style.width = '40px';
+//       element.style.height = '40px';
+//       new mapboxgl.Marker(element)
+//         .setLngLat([post.lng, post.lat])
+//         .setPopup(popup)
+//         .addTo(map);
+//     });
