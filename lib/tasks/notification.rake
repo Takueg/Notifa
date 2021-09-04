@@ -6,7 +6,7 @@ namespace :notify do
     searches = Search.joins(:notifications).where(notifications: {is_sent: nil})
     # iterate through the searches
     searches.each do |search|
-      # binding.pry
+      binding.pry
       # send slack Messages with search results
       slack_user_id = slack_client.users_lookupByEmail(email: search.user.email).user.id
       slack_client.chat_postMessage(channel: slack_user_id, text: message_text(search))
@@ -33,8 +33,6 @@ namespace :notify do
         🖼 #{notification.post.image_urls.join(", ")}
         🔗 #{Rails.application.routes.url_helpers.post_url(notification.post)}
       POST
-    binding.pry
     end
-
   end
 end

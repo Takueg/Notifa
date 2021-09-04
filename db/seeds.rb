@@ -1,5 +1,6 @@
 require 'faker'
-
+puts "destroy all Notifications"
+Notification.destroy_all
 puts "destroy all users"
 User.destroy_all
 puts "destroy all searches"
@@ -16,7 +17,12 @@ Post.destroy_all
 # end
 
 puts 'Creating Users'
-
+User.create!(
+    email: 'tyras.torsten@gmail.com',
+    password: '12345678',
+    first_name: 'Torsten',
+    last_name: 'Tyras'
+    )
 User.create!(
     email: 'lena.oberherr@gmail.com',
     password: '12345678',
@@ -41,12 +47,7 @@ User.create!(
 #     first_name: 'Jonathan',
 #     last_name: 'Scheffbuch'
 #     )
-User.create!(
-    email: 'tyras.torsten@gmail.com',
-    password: '12345678',
-    first_name: 'Torsten',
-    last_name: 'Tyras'
-    )
+
 # 20.times do
 #   User.create!(
 #     email: Faker::Internet.email,
@@ -71,17 +72,44 @@ images = []
     )
 end
 
-puts 'Creating 20 fake posts...'
+# puts 'Creating 20 fake posts...'
 
-20.times do
+# 20.times do
+#   Post.create!(
+#     address: Faker::Address.street_name,
+#     price: rand(350..1750),
+#     size: rand(20..220),
+#     room: rand(1..5),
+#     description: Faker::Lorem.sentence,
+#     )
+
+# end
+
+
+
+puts 'Creating posts from posts.json...'
+
+
+filepath = File.join(Rails.root, 'db', 'posts.json')
+serialized_posts = File.read(filepath)
+posts = JSON.parse(serialized_posts)
+
+
+posts.each do |post|
   Post.create!(
-    address: Faker::Address.street_name,
-    price: rand(350..1750),
-    size: rand(20..220),
-    room: rand(1..5),
-    description: Faker::Lorem.sentence,
-    )
-
+    address: post["address"],
+    price: post["price"],
+    size: post["size"],
+    room: post["room"],
+    description: post["description"],
+    title: post["title"],
+    post_url: post["post_url"],
+    category: post["category"],
+    date_posted: post["date_posted"],
+    company: post["company"],
+    image_urls: post["image_urls"],
+    latitude: post["latitude"],
+    longitude: post["longitude"]
+  )
 end
-
 puts 'Finished!'
