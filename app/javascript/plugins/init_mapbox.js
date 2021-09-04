@@ -34,14 +34,3 @@ const initMapbox = () => {
 };
 
 export { initMapbox };
-
-// markers.forEach( => {
-//       const element = document.createElement('div');
-//       element.innerHTML = post.price;
-//       element.style.width = '40px';
-//       element.style.height = '40px';
-//       new mapboxgl.Marker(element)
-//         .setLngLat([post.lng, post.lat])
-//         .setPopup(popup)
-//         .addTo(map);
-//     });
