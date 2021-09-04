@@ -20,9 +20,10 @@ namespace :scraper do
     post_html = URI.open(show_url).read
     post_doc = Nokogiri::HTML(post_html)
 
-    post_doc.search(card_selector).each do |card|
+    post_doc.search(card_selector).first(15).each do |card|
       card_url = card.search("a").first.attr("href")
       show_page = index_url + card_url
+      sleep(5)
       show_html = URI.open(show_page).read
       show_doc = Nokogiri::HTML(show_html)
 
@@ -36,12 +37,12 @@ namespace :scraper do
       room_selector = '.addetailslist--detail--value'
       description_selector = 'p'
       date_posted_selector = 'div#viewad-extra-info'
-      title = show_doc.search(article_selector).search(title_selector).first.content.strip
+
+      title = show_doc.search(article_selector).search(title_selector).first.text.strip
       street = show_doc.search(article_selector).search(street_selector).text.strip
       city = show_doc.search(article_selector).search(city_selector).text.strip
       address = street + ", " + city
       p address
-      next
       price = show_doc.search(article_selector).search(price_selector).first.content.strip
       size = show_doc.search(size_selector)[2]&.text&.strip
       post_url = index_url + card_url
@@ -57,7 +58,16 @@ namespace :scraper do
           end
         end
 
-      Post.create(title: title, address: address, price: price, size: size, post_url: post_url, room: room, description: description, date_posted: date_posted, company: company, image_urls: image_urls)
+      Post.create!(title: title, address: address, price: price, size: size, post_url: post_url, room: room, description: description, date_posted: date_posted, company: company, image_urls: image_urls)
+    end
+  end
+
+  task create_json: :environment do
+    # should take all Posts and serialize them to a json
+    filepath = File.join(Rails.root, 'db', 'posts.json')
+    all_posts = JSON.generate(Post.all.map { |post|  post.attributes  })
+    File.open(filepath, 'wb') do |file|
+      file.write(all_posts)
     end
   end
 end

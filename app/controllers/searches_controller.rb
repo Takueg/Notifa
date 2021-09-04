@@ -14,7 +14,6 @@ class SearchesController < ApplicationController
     @search = Search.new(search_params)
     @search.user_id = current_user.id
     @search.save
-    raise
     render :new if !@search.valid?
   end
 
