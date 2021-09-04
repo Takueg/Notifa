@@ -1,8 +1,8 @@
 class SearchesController < ApplicationController
 
   def index
-    # @searches = Search.all
     @searches = Search.where(user_id: current_user.id)
+    # @searches = Search.where(user_id: current_user.id).includes(:posts)
   end
 
   def new
@@ -33,6 +33,12 @@ class SearchesController < ApplicationController
 
   def show
     @search = Search.find(params[:id])
+  end
+
+  def destroy
+    @search = Search.find(params[:id])
+    @search.destroy
+    redirect_to searches_path
   end
 
   private

@@ -60,7 +60,7 @@ class PostsController < ApplicationController
 
   def search_params
     params.require(:search).permit(:city, :preferred_district, :max_price,
-      :min_size, :room, :category, :frequency, :user_id)
+      :min_size, :room, :category, :frequency, :title, :user_id)
   end
 end
 
