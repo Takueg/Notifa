@@ -9,20 +9,23 @@
 
 
   <div class="search-city">
-      <% unless ["new", "home"].include?(params[:action]) %>
-        <i class="ti ti-search"></i>
-        <%= form_tag new_search_path, method: :get, class: "form" do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control city-input",
-            placeholder: "Search"
-          %>
-          <%= button_tag(type: 'submit', class: "btn navbar-submit") do %>
-           <!-- <i class="ti ti-search"></i> -->
-          <% end %>
-          <% end %>
+    <% unless ["new", "home"].include?(params[:action]) %>
+      <i class="ti ti-search"></i>
+      <%= form_tag new_search_path, method: :get, class: "form" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control city-input",
+          placeholder: "Search"
+        %>
+        <%= button_tag(type: 'submit', class: "btn navbar-submit") do %>
+         <!-- <i class="ti ti-search"></i> -->
         <% end %>
-      </div>
+        <%#= button_tag(type: 'submit', class: "btn city-submit") do %>
+         <!-- <i class="ti ti-arrow-narrow-right"></i> -->
+        <%# end %>
+      <% end %>
+    <% end %>
+  </div>
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
