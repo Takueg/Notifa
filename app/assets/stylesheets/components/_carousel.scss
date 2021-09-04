@@ -1,6 +1,37 @@
-.neighborbood-image {
+.neighborbood-img-holder {
   background-color: grey;
-  height: 400px;
-  max-width: 65%;
+  height: 280px;
+  max-width: 56%;
   margin: 0 auto;
+  background: linear-gradient(159.91deg, rgba(255, 255, 255, 0.4) 1.93%, rgba(255, 255, 255, 0.3) 94.84%);
+  mix-blend-mode: normal;
+  box-shadow: 0px 50px 50px 25px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(40px);
+  border-radius: 18px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+}
+
+.neighborbood-title {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 48px;
+  margin-top: 28px;
+}
+
+.neighborbood-description {
+  max-width: 56%;
+  max-height: 142px;
+  margin: 24px auto;
+}
+
+.neighborhood-img {
+  flex-grow: 1;
+  height: 100%;
+  border-radius: 8px;
+  // width: 70%;
+  background-size: cover;
+  background-position: center;
 }
