@@ -30,6 +30,10 @@
   width: auto;
   height: auto;
   border-radius: 8px;
-  padding: 18px;
-  font-size: 20px;
+  padding: 1px 12px;
+  font-size: 12px;
 }
+
+.price-tag::after { content:
+  "€";
+ }
