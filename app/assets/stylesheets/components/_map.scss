@@ -1,7 +1,8 @@
 #map {
-  // height: 100vh;
+  // height: calc(100vh - 12px);
+  // width: 100%;
   position: sticky;
-  // top: 0;
+  top: 0;
 }
 
 .mapboxgl-popup {
@@ -12,7 +13,6 @@
 .mapboxgl-popup-content {
   text-align: left;
   font-family: 'Open Sans', sans-serif;
-
     .cards {
     grid-template-columns: 1fr;
       .card {
@@ -25,12 +25,11 @@
   }
 }
 
-// .card-map {
-//   border-radius: 8px;
-//   border: 1px solid #E3E5E5;
-//   box-shadow: 0px 2px 25px 5px rgba(0, 0, 0, 0.08);
-//   border-style: none;
-//   width: 200px;
-//   height: 160px;
-// }
-
+.price-tag {
+  background-color: white;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  padding: 18px;
+  font-size: 20px;
+}

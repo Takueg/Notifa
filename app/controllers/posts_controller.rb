@@ -14,7 +14,8 @@ class PostsController < ApplicationController
         {
           lat: post.latitude,
           lng: post.longitude,
-          info_window: render_to_string(partial: "info_window", locals: {post: post })
+          info_window: render_to_string(partial: "info_window", locals: {post: post }),
+          post: post
         }
       end
   end
