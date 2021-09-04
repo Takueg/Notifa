@@ -7,17 +7,46 @@ Search.destroy_all
 puts "destroy all posts"
 Post.destroy_all
 
-puts 'Creating First User'
+# ----------------------------------------------------
+# Creating Notifications #
+# has to be copied and pushed at once in the console:
+# ----------------------------------------------------
+# Search.all.each do |search|
+#   search.notifications.create(post: Post.all.sample)
+# end
+
+puts 'Creating Users'
 
 User.create!(
-    email: 'notifa@notifa.com',
+    email: 'lena.oberherr@gmail.com',
     password: '12345678',
-    first_name: 'Notifa',
-    last_name: 'Notifa'
+    first_name: 'Lena',
+    last_name: 'Oberherr'
     )
-
-puts 'Creating 20 fake users...'
-
+User.create!(
+    email: 'takueg@gmail.com',
+    password: '12345678',
+    first_name: 'Takudzwa',
+    last_name: 'Gwindingwi'
+    )
+User.create!(
+    email: 'jcasoya@gmail.com',
+    password: '12345678',
+    first_name: 'Jorge',
+    last_name: 'Cases'
+    )
+# User.create!(
+#     email: '????',
+#     password: '12345678',
+#     first_name: 'Jonathan',
+#     last_name: 'Scheffbuch'
+#     )
+User.create!(
+    email: 'tyras.torsten@gmail.com',
+    password: '12345678',
+    first_name: 'Torsten',
+    last_name: 'Tyras'
+    )
 # 20.times do
 #   User.create!(
 #     email: Faker::Internet.email,

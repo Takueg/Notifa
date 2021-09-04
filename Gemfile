@@ -81,3 +81,5 @@ gem 'cloudinary', '~> 1.16.0'
 # TimeDifference
 gem 'time_difference'
 
+# SlackIntegration
+gem 'slack-ruby-client'
