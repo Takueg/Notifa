@@ -8,21 +8,18 @@
   </button>
 
 
-  <div class="search-city">
+  <div class="nav-search-city">
     <% unless ["new", "home"].include?(params[:action]) %>
-      <i class="ti ti-search"></i>
-      <%= form_tag new_search_path, method: :get, class: "form" do %>
+      <!-- <i class="ti ti-search"></i> -->
+      <%= form_tag new_search_path, method: :get, class: "form-inline" do %>
         <%= text_field_tag :query,
           params[:query],
-          class: "form-control city-input",
+          class: "form-control nav-search-input",
           placeholder: "Search"
         %>
         <%= button_tag(type: 'submit', class: "btn navbar-submit") do %>
-         <!-- <i class="ti ti-search"></i> -->
+          <i class="ti ti-search"></i>
         <% end %>
-        <%#= button_tag(type: 'submit', class: "btn city-submit") do %>
-         <!-- <i class="ti ti-arrow-narrow-right"></i> -->
-        <%# end %>
       <% end %>
     <% end %>
   </div>
