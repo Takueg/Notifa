@@ -8,6 +8,7 @@ class SearchesController < ApplicationController
   def new
     @search = Search.new
     @search.city = params[:query]
+    @neighborhoods = Neighborhood.all
   end
 
   def create

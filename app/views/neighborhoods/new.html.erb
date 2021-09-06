@@ -1,0 +1,8 @@
+<div class="row justify-content-center p-5 m-5">
+  <%= simple_form_for @neighborhood do |f| %>
+    <%= f.input :name, :label => 'name' %>
+    <%= f.input :description, :label => 'description' %>
+    <%= f.input :image_url, :label => 'image_url' %>
+    <%= f.submit %>
+  <% end %>
+</div>
