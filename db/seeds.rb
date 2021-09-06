@@ -76,7 +76,7 @@ Neighborhood.create!(
 
 Neighborhood.create!(
   name: 'Friedrichshain',
-  description: "Friedrichshain is now part of a combined district of Friedrichshain -Kreuzberg, but these Kiez across the water have distinct personalities.",
+  description: "Friedrichshain is young, punk, industrial, and full of history. It is now part of a combined district of Friedrichshain -Kreuzberg, but these Kiez across the water have distinct personalities.",
   image_url: "https://www.tripsavvy.com/thmb/NvOYaZRMZzrOx7t_S1ckxH9lJKc=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/RiverSpree-81381d56c32140feadae0f55c9545724.jpg"
   )
 
@@ -88,19 +88,19 @@ Neighborhood.create!(
 
 Neighborhood.create!(
   name: "Charlottenburg",
-  description: "Charlottenburg is the nicer Berlin. It is cleaner and more civilized than other sections of the city, but for many people that also means it is more boring.",
+  description: "Charlottenburg-Wilmersdorf (its title — again uniting two formerly distinct neighborhoods) is the nicer Berlin. It is cleaner and more civilized, but for many people that also means it is more boring",
   image_url: "https://www.tripsavvy.com/thmb/3q32eMuyoxbFjOjOYvjDM2Z7Us4=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/charlottenburgkaiserwilhelmchurchGettyImages-654831923DougArmand-599bdde50d327a0011a7b5e5.jpg"
   )
 
 Neighborhood.create!(
   name: "Wedding",
-  description: "Wedding (pronounced VED-ding) has a very different reputation than much of Mitte. Located just north of central Mitte, the area is still a haven of relatively cheap rents in grand historical buildings.",
+  description: "Wedding (pronounced VED-ding) has a very different reputation than of Mitte. Located just north of central Mitte, the area is still a haven of relatively cheap rents in grand historical buildings.",
   image_url: "https://www.tripsavvy.com/thmb/JqpxrzgHwFdQPq6JWH8eJD8JaLk=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/HumboldthainFlakturmIanDunster-599d2d3403f402001192ae3c.jpg"
   )
 
 Neighborhood.create!(
   name: "Neukölln",
-  description: "Neukölln is a popular neighborhood, changing amidst rampant gentrification. This neighborhood is the current darling of new immigrants and a great place to base yourself for some of the best nightlife.",
+  description: "Neukölln is a popular neighborhood, changing amidst rampant gentrification. This neighborhood is the current darling of new immigrants and a great place to base yourself for nightlife.",
   image_url: "https://www.tripsavvy.com/thmb/wf0vOUgikrHGpi024rOICY0gl80=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/TemplehofNeukoellnGettyImages-493550961AxelSchmidt-599bdf84c41244001330f5e8.jpg"
   )
 
