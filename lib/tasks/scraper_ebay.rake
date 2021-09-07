@@ -23,7 +23,7 @@ namespace :scraper do
     post_doc.search(card_selector).first(15).each do |card|
       card_url = card.search("a").first.attr("href")
       show_page = index_url + card_url
-      sleep(5)
+      sleep(120)
       show_html = URI.open(show_page).read
       show_doc = Nokogiri::HTML(show_html)
 
@@ -38,7 +38,7 @@ namespace :scraper do
       description_selector = 'p'
       date_posted_selector = 'div#viewad-extra-info'
 
-      title = show_doc.search(article_selector).search(title_selector).first.text.strip
+      title = show_doc.search(article_selector).search(title_selector).first.content.strip
       street = show_doc.search(article_selector).search(street_selector).text.strip
       city = show_doc.search(article_selector).search(city_selector).text.strip
       address = street + ", " + city
