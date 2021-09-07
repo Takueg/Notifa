@@ -2,7 +2,7 @@ namespace :notify do
   desc "Sending notifications for a user search"
 
   task send_slack_message: :environment do
-    slack_client = Slack::Web::Client.new(token: "xoxb-2453239853905-2440672274050-BeLc2hsBHx7NpzusEhBVQ5jW")
+    slack_client = Slack::Web::Client.new(token: "xoxb-2453239853905-2440672274050-lICCDEvHnLeaeSSXlNfkO0gU")
     searches = Search.joins(:notifications).where(notifications: {is_sent: nil})
     # iterate through the searches
     searches.each do |search|
