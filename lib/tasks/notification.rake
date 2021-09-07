@@ -2,13 +2,19 @@ namespace :notify do
   desc "Sending notifications for a user search"
 
   task send_slack_message: :environment do
-    slack_client = Slack::Web::Client.new(token: "xoxb-2453239853905-2440672274050-lICCDEvHnLeaeSSXlNfkO0gU")
-    searches = Search.joins(:notifications).where(notifications: {is_sent: nil})
+    slack_client = Slack::Web::Client.new(token: ENV["SLACK_TOKEN"])
+    searches = Search.joins(:notifications).where(notifications: {is_sent: [nil, false]})
+    # for testing purposes:
+    # searches = searches.filter {|search| search.user.email == "tyras.torsten@gmail.com"}
     # iterate through the searches
     searches.each do |search|
       # send slack Messages with search results
-      slack_user_id = slack_client.users_lookupByEmail(email: search.user.email).user.id
-      slack_client.chat_postMessage(channel: slack_user_id, text: message_text(search))
+      begin
+        slack_user_id = slack_client.users_lookupByEmail(email: search.user.email).user.id
+        slack_client.chat_postMessage(channel: slack_user_id, text: message_text(search))
+      rescue Slack::Web::Api::Errors::AccountInactive
+        next
+      end
     end
   end
 
@@ -29,8 +35,7 @@ namespace :notify do
         💰 #{notification.post.price} €
         🏠 #{notification.post.size} m2
         🏘 #{notification.post.room} rooms
-        🖼 #{notification.post.image_urls.join(", ")}
-        🔗 #{Rails.application.routes.url_helpers.post_url(notification.post)}
+        🔗 <#{Rails.application.routes.url_helpers.post_url(notification.post)}|View flat>
       POST
     end
   end
