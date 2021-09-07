@@ -68,7 +68,10 @@ images = []
     user: User.all.sample,
     city: 'Berlin',
     frequency: frequency.sample,
-    category: category.sample
+    category: category.sample,
+    max_price: rand(550..2500),
+    min_size: rand(8..50),
+    room: rand(0..3)
     )
 end
 

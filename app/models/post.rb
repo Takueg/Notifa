@@ -1,15 +1,32 @@
 class Post < ApplicationRecord
   has_many :notifications
 
+  before_create do
+    if price < 50
+      self.price = rand(250..2000)
+    end
+    if room.nil? || room < 1 || room > 10
+      self.room = rand(1..5)
+    end
+    if size.nil? || size < 8
+      self.size = rand(8..50)
+    end
+  end
 
   after_create do
     puts "Post was created"
-    puts self.title
-    puts "finding searches"
-    searches = Search.where(max_price: price..Float::INFINITY).where(min_size: 0..size).where(room: 0..room)
-    p searches
+    searches = Search.all
+    if price.present?
+      searches = searches.where(max_price: price..Float::INFINITY)
+    end
+    if room.present?
+      searches = searches.where(room: 0..room)
+    end
+    if size.present?
+      searches = searches.where(min_size: 0..size)
+    end
+
     searches.each do |search|
-      puts "creating notification"
       Notification.create(search_id: search.id, post_id: id, is_sent: false)
     end
   end
