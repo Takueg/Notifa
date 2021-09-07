@@ -13,6 +13,11 @@
 @import "pages/index";
 
 
+input:focus {
+  outline: none;
+}
+
+
 .app {
   display: grid;
   grid-template-rows: auto 1fr auto;
