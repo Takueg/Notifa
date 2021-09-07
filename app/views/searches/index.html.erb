@@ -45,15 +45,31 @@
 
             </div>
             <div class="p-3 d-flex flex-column">
-              <p class="search-district text-decoration-none"><%= search.title %><span class="text-muted font-weight-normal">, <%= search.city %></span></p>
-        <% end %>
+              <% if search.title == "Berlin, " %>
+                <p class="search-district text-decoration-none"><span class="text-muted font-weight-normal">All posts in <%= search.city %></span></p>
+              <% else %>
+                <p class="search-district text-decoration-none"><%= search.title %><span class="text-muted font-weight-normal">, <%= search.city %></span></p>
+              <% end %>
+
+
+              <%# if search.category == nil %>
+                <!-- <p class="search-district text-decoration-none"><span class="text-muted font-weight-normal">All posts in <%= search.city %></span></p> -->
+              <%# elsif search.title == nil %>
+                <!-- <p class="search-district text-decoration-none"><span class="text-muted font-weight-normal">Search for <%= search.category %> in <%= search.city %></span></p> -->
+              <%# else %>
+                <!-- <p class="search-district text-decoration-none"><%= search.title %><span class="text-muted font-weight-normal">, <%= search.city %></span></p> -->
+              <%# end %>
+
+          <% end %>
               <div class="d-flex align-items-end justify-content-between">
                 <small class="text-muted flex-grow-1"><%= search.posts.count %> listings</small>
                 <!-- <button id="delete-sweet-alert" class="btn btn-danger">Delete</button> -->
                 <%#= link_to "delete", search_path(search), method: :delete, id: "delete-link", class: "hidden" %>
-                <div class="flex-shrink-0" id="sweet-alert-demo">
+                <div class="flex-shrink-0">
                   <%#= render "search_toggle", search: search %>
-                  <%= link_to 'delete', search_path(search), method: :delete, class: 'btn btn-black', data: { confirm: 'Are you sure you want to delete this list?' } %>
+                  <%= link_to search_path(search), method: :delete, class: 'btn btn-black filter-white', data: { confirm: 'Are you sure you want to delete this list?' } do %>
+                    <i class="far fa-trash-alt"></i>
+                  <% end %>
                 </div>
               </div>
             </div>
