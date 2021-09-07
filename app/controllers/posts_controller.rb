@@ -3,7 +3,6 @@ class PostsController < ApplicationController
 
   def index
     #method that runs search
-
     if params[:search].present?
       search
     else
