@@ -21,7 +21,7 @@
           <% @posts.each do |post| %>
           <%= link_to post_path(post) do %>
           <div class="card">
-            <p class="mins-ago">5 mins ago</p>
+            <p class="mins-ago"><%= rand(1..7) %> mins ago</p>
             <object data="<%= post.image_urls.first %>" class="card-img">
               <img src= "<%= image_path "no_image_available.svg" %>" class="card-img"/>
             </object>
@@ -30,7 +30,7 @@
               <p class="address"><%= post.address.split.last %></p>
               <p class="rooms"><%= post.room %> rooms • <%= post.size %> m²</p>
               <div class="price-date-wrapper">
-                <p class="from-date">From 13 SEP 2021</p>
+                <p class="from-date">From <%= rand(1..15) %> OCT 2021</p>
                 <p class="price"><%= post.price %>€</p>
               </div>
             </div>

@@ -6,7 +6,7 @@
   <main class="post-content">
 
     <div class="image-grid">
-      <p class="time-posted">5 min ago</p>
+      <p class="time-posted"><%= rand(1..7) %> mins ago</p>
       <% @post.image_urls.each_with_index do |image_url, index| %>
         <% if index == 0 %>
           <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_url %>')">
@@ -36,7 +36,7 @@
     <div class="booking-box">
       <p class="rent-per-month">Rent per month</p>
       <p class="post-price"><%= @post.price %>  €</p>
-      <p class="from-date">From 15 SEP 2021</p>
+      <p class="from-date">From <%= rand(1..15) %> OCT 2021</p>
         <div class="booking-card-grid">
           <div>
             <i class="ti ti-map-pin icon-size icon-position"></i>
