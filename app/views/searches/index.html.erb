@@ -18,47 +18,47 @@
           <div class="searches-card bg-white shadow">
             <div class="image-grid mt-3">
               <% if images.count > 2 %>
-                <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= images[0] %>')"></div>
+                <div class="large-image" style="background-image: url('<%= images[0] %>')"></div>
                 <div class="small-images">
-                  <div class="small-image-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= images[1]%>')"></div>
-                  <div class="small-image-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= images[2]%>')"></div>
+                  <div class="small-image-1" style="background-image: url('<%= images[1]%>')"></div>
+                  <div class="small-image-2" style="background-image: url('<%= images[2]%>')"></div>
                 </div>
               <% elsif images.count == 2 %>
-                <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= images[0] %>')"></div>
+                <div class="large-image" style="background-image: url('<%= images[0] %>')"></div>
                 <div class="small-images">
-                  <div class="small-image-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= images[1]%>')"></div>
-                  <div class="small-image-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "no_image_available.svg" %>')"></div>
+                  <div class="small-image-1" style="background-image: url('<%= images[1]%>')"></div>
+                  <div class="small-image-2" style="background-image: url('<%= image_path "no_image_available.svg" %>')"></div>
                 </div>
               <% elsif images.count == 1 %>
-                <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= images[0] %>')"></div>
+                <div class="large-image" style="background-image: url('<%= images[0] %>')"></div>
                 <div class="small-images">
-                  <div class="small-image-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "no_image_available.svg" %>')"></div>
-                  <div class="small-image-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "no_image_available.svg" %>')"></div>
+                  <div class="small-image-1" style="background-image: url('<%= image_path "no_image_available.svg" %>')"></div>
+                  <div class="small-image-2" style="background-image: url('<%= image_path "no_image_available.svg" %>')"></div>
                 </div>
               <% else %>
-                <div class="large-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "no_image_available.svg" %>')"></div>
+                <div class="large-image" style="background-image: url('<%= image_path "no_image_available.svg" %>')"></div>
                 <div class="small-images">
-                  <div class="small-image-1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "no_image_available.svg" %>')"></div>
-                  <div class="small-image-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path "no_image_available.svg" %>)"></div>
+                  <div class="small-image-1" style="background-image: url('<%= image_path "no_image_available.svg" %>')"></div>
+                  <div class="small-image-2" style="background-image: url(<%= image_path "no_image_available.svg" %>)"></div>
                 </div>
               <% end %>
 
             </div>
             <div class="p-3 d-flex flex-column">
-              <% if search.title == "Berlin, " %>
-                <p class="search-district text-decoration-none"><span class="text-muted font-weight-normal">All posts in <%= search.city %></span></p>
-              <% else %>
-                <p class="search-district text-decoration-none"><%= search.title %><span class="text-muted font-weight-normal">, <%= search.city %></span></p>
-              <% end %>
-
-
-              <%# if search.category == nil %>
+              <%# if search.title == "Berlin, " %>
                 <!-- <p class="search-district text-decoration-none"><span class="text-muted font-weight-normal">All posts in <%= search.city %></span></p> -->
-              <%# elsif search.title == nil %>
-                <!-- <p class="search-district text-decoration-none"><span class="text-muted font-weight-normal">Search for <%= search.category %> in <%= search.city %></span></p> -->
               <%# else %>
                 <!-- <p class="search-district text-decoration-none"><%= search.title %><span class="text-muted font-weight-normal">, <%= search.city %></span></p> -->
               <%# end %>
+
+
+              <% if search.category == nil %>
+                <p class="search-district text-decoration-none">All posts, <span class="text-muted font-weight-normal"><%= search.city %></span></p>
+              <% elsif search.title == nil %>
+                <p class="search-district text-decoration-none">Search for <%= search.category %>, <span class="text-muted font-weight-normal"><%= search.city %></span></p>
+              <% else %>
+                <p class="search-district text-decoration-none"><%= search.title %><span class="text-muted font-weight-normal">, <%= search.city %></span></p>
+              <% end %>
 
           <% end %>
               <div class="d-flex align-items-end justify-content-between">

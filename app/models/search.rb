@@ -11,9 +11,9 @@ class Search < ApplicationRecord
   # validates :category, inclusion: { in: ["Studio", "Apartment", "Private room", "Shared room", "House"] }
   # validates :room, numericality: { only_integer: true }
 
-  def title
-    super || "#{city}, #{category}"
-  end
+  # def title
+  #   super || "#{city}, #{category}"
+  # end
 
   FREQUENCY_OPTIONS = ["Immediately", "Hourly", "Daily"]
   CHANNEL_OPTIONS = ["Email", "SMS", "Slack"]
