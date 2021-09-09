@@ -17,13 +17,13 @@ class Post < ApplicationRecord
     puts "Post was created"
     searches = Search.all
     if price.present?
-      searches = searches.where(max_price: price..Float::INFINITY)
+      searches = searches.where(max_price: price..Float::INFINITY).or(searches.where(max_price: nil))
     end
     if room.present?
-      searches = searches.where(room: 0..room)
+      searches = searches.where(room: 0..room).or(searches.where(room: nil))
     end
     if size.present?
-      searches = searches.where(min_size: 0..size)
+      searches = searches.where(min_size: 0..size).or(searches.where(min_size: nil))
     end
 
     searches.each do |search|
