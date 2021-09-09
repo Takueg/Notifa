@@ -21,7 +21,7 @@
             label: false,
             input_html: { class: 'form-control-lg' } %>
           <%= f.input :min_size,
-            placeholder: 'Min size in sm²',
+            placeholder: 'Min size in m²',
             label: false,
             input_html: { class: 'form-control-lg' } %>
           <%= f.input :max_price,
@@ -34,7 +34,7 @@
           </div>
         </div>
         <div class="search-page-2">
-          <h3 class="text-center mb-3"> Please specify your <br><span style="color:#5538EE">notifications.</span></h3>
+          <h3 class="text-center mb-3"> Please set your <br><span style="color:#5538EE">notifications.</span></h3>
           <%= f.input :title,
             placeholder: 'Title',
             label: false,
@@ -56,8 +56,6 @@
             input_html: {class: 'category-selector'},
             collection: Search::CHANNEL_OPTIONS %>
           <button type="button" class="btn-block btn-lg mt-4 btn-notifa search-saved-sweet-alert form-submit-delay">Save & Search</button>
-          <%#= f.button :submit, 'Save & Search',
-            class: 'btn-block btn-lg mt-4 btn-notifa search-saved-sweet-alert form-submit-delay' %>
           <div class="skip-link">
             <a href="" id="back-form-btn">Back</a>
           </div>
