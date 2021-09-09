@@ -4,6 +4,23 @@
   padding-top: 68px;
 }
 
+.params-show {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  font-size: 16px;
+  font-weight: 400;
+  color: #5538EE;
+  gap: 18px;
+}
+
+.params-show-tag {
+  background-color: #E7E7FF;
+  padding: 8px 4px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 8px;
+}
+
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
