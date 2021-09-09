@@ -5,13 +5,13 @@
       <p><%=@posts.size%> results</p>
       <div class="params-show">
         <text class="params-show-tag"><%= @search.city.capitalize %></text>
-        <% if @search.preferred_district.length > 0 %>
+        <% if @search.preferred_district.present? %>
           <text class="params-show-tag"><%= @search.preferred_district.capitalize %></text>
         <% end %>
-        <% if @search.min_size.to_i > 0 %>
+        <% if @search.min_size.present? %>
           <text class="params-show-tag"><%= @search.min_size %> m²</text>
         <% end %>
-        <% if @search.max_price.to_i > 0 %>
+        <% if @search.max_price.present? %>
           <text class="params-show-tag">less than <%= @search.max_price %>€</text>
         <% end %>
       </div>
