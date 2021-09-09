@@ -4,7 +4,7 @@ namespace :demo do
   task send_notification: :environment do
     # add more image urls to post one
     # create second post
-
+    # heroku run rake demo:send_notification
     slack_client = Slack::Web::Client.new(token: ENV["SLACK_TOKEN"])
     Post.create(
       title: "Zwischenmiete 15.9.-21.10 im Herzen von Neukölln",
@@ -19,19 +19,19 @@ namespace :demo do
       company: "ebay-kleinanzeigen",
       # category: "shared flat"
     )
-    Post.create(
-      title: "Zwischenmiete 15.9.-21.10 im Herzen von Neukölln",
-      price: 700,
-      size: 28,
-      room: 1,
-      image_urls: ["https://i.ebayimg.com/00/s/MTIwMFgxNjAw/z/3P4AAOSwSBNhOheu/$_57.JPG"],
-      post_url: "https://www.ebay-kleinanzeigen.de/s-anzeige/zwischenmiete-15-9-21-10-im-herzen-von-neukoelln/1868456931-199-3391",
-      description: "Wir vermieten unsere wunderschöne Wohnung in der Zeit zwischen 15.9. - 21.10. unter.\n\nDie 5 Wochen sind fix und nicht variabel. Das Haus ist sehr ruhig, daher wünschen wir uns einen verantwortlichen Zwischenmieter, der weder Partys veranstaltet noch auf Krawall aus ist. :-D\n\nDie Wohnung besteht aus Wohnzimmer, Arbeitszimmer, Schlafzimmer, Küche, Duschbad und Balkon! Das WLAN funktioniert ohne Probleme und reicht auch für Video Meetings aus. Die Anbindung ist super (U8 Leinestraße/U7 Karl-Marx-Straße sind in 6 Minuten fußläufig erreichbar), Supermärkte und Restaurants sind ebenfalls nur einen Katzensprung entfernt.\n\nBei Interesse bitte eine Nachricht an mich und wir können gern eine Online Besichtigung vereinbaren und alle weiteren Fragen klären.",
-      address: "12053 Berlin - Neukölln",
-      date_posted: Date.today,
-      company: "ebay-kleinanzeigen",
-      # category: "shared flat"
-    )
+    # Post.create(
+    #   title: "Zwischenmiete 15.9.-21.10 im Herzen von Neukölln",
+    #   price: 700,
+    #   size: 28,
+    #   room: 1,
+    #   image_urls: ["https://i.ebayimg.com/00/s/MTIwMFgxNjAw/z/3P4AAOSwSBNhOheu/$_57.JPG"],
+    #   post_url: "https://www.ebay-kleinanzeigen.de/s-anzeige/zwischenmiete-15-9-21-10-im-herzen-von-neukoelln/1868456931-199-3391",
+    #   description: "Wir vermieten unsere wunderschöne Wohnung in der Zeit zwischen 15.9. - 21.10. unter.\n\nDie 5 Wochen sind fix und nicht variabel. Das Haus ist sehr ruhig, daher wünschen wir uns einen verantwortlichen Zwischenmieter, der weder Partys veranstaltet noch auf Krawall aus ist. :-D\n\nDie Wohnung besteht aus Wohnzimmer, Arbeitszimmer, Schlafzimmer, Küche, Duschbad und Balkon! Das WLAN funktioniert ohne Probleme und reicht auch für Video Meetings aus. Die Anbindung ist super (U8 Leinestraße/U7 Karl-Marx-Straße sind in 6 Minuten fußläufig erreichbar), Supermärkte und Restaurants sind ebenfalls nur einen Katzensprung entfernt.\n\nBei Interesse bitte eine Nachricht an mich und wir können gern eine Online Besichtigung vereinbaren und alle weiteren Fragen klären.",
+    #   address: "12053 Berlin - Neukölln",
+    #   date_posted: Date.today,
+    #   company: "ebay-kleinanzeigen",
+    #   # category: "shared flat"
+    # )
     search = Search.last
     begin
       slack_user_id = slack_client.users_lookupByEmail(email: search.user.email).user.id
