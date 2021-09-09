@@ -40,10 +40,13 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initToggleSearchForm } from '../components/search_form';
 // form sweetalert
 import { initSubmitSweetalert } from '../components/submit_sweetalert';
+// channel icons
+import { initLoadChannelIcons } from '../components/load_channel_icons';
 
 document.addEventListener('turbolinks:load', () => {
   initToggleSearchForm();
   initMapbox();
   initSubmitSweetalert();
+  initLoadChannelIcons();
 })
 
