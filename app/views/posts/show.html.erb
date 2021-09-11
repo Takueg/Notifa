@@ -31,7 +31,11 @@
   </main>
 
   <div class="sidebar">
-    <h1 class="post-title text-center mt-3"><%= @post.address %></h1>
+    <% if @post.address[0] == "," %>
+      <h1 class="post-title text-center mt-3"><%= @post.address[1..-1] %></h1>
+    <% else %>
+      <h1 class="post-title text-center mt-3"><%= @post.address %></h1>
+    <% end %>
 
     <div class="booking-box">
       <p class="rent-per-month">Rent per month</p>
